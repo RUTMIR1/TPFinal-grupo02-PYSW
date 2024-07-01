@@ -1,0 +1,40 @@
+body{
+    background-image: url('/assets/images/fondoLogin.jpg');
+    background-size: cover;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+form{
+    /*width: 50vw;*/ 
+    background-color: rgba(65, 65, 65, 0.89);
+    padding: 30px;
+    border-radius:15px;
+    color: rgb(214, 214, 214);
+    border: 1px solid #1f1f1f;
+    box-shadow: 10px 10px 20px rgb(0, 0, 0);
+    margin: 50px auto;
+}
+label{
+    color: white;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+
+}
+.btn{
+    color: rgb(255, 255, 255);
+    font-family:cursive;
+    background-color:#6652ff;
+    transition: all 450ms;
+}
+.btn:hover{
+    color: aliceblue;
+    background-color: #5741ff
+}
