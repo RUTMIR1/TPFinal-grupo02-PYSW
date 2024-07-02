@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    background-image: url('../../../assets/images/Contour Line.svg');
+    background-size: cover;
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center center; /* Centra la imagen */
+    background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
+    height: 100vh; 
+}
+
+img{
+    width: 90%;
+    background-color: rgba(240, 248, 255, 0.178);
+    padding: 20px;
+    border-radius: 15px;
+}
+.cabezal, .contenido{
+    
+    padding: 20px;
+}
