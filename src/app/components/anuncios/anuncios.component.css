@@ -22,3 +22,28 @@ img{
     
     padding: 20px;
 }
+/**************MEDIA QUERIES*************************/
+
+/*MOVIL*/
+@media(max-width: 460px){
+    .acordeon{
+       width: 90%;
+       margin: auto;
+   }
+   
+}
+
+
+
+/*TABLET*/
+@media(min-width:460px){
+    img{
+        height: 30vh;
+        width: 100%;
+    }
+
+}
+/*PC*/
+@media(min-width:769px){
+   
+}
