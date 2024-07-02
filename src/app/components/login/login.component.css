@@ -21,7 +21,7 @@ img{
 }
 
 form{
-    width: 60%;
+    width: 50%;
     background-color: rgba(65, 65, 65, 0.89);
     padding: 30px;
     border-radius:15px;
@@ -51,4 +51,32 @@ a{
 .btn:hover{
     color: aliceblue;
     background-color: #5741ff
+}
+input{
+    margin-top: 15px;
+}
+/**************MEDIA QUERIES*************************/
+
+/*MOVIL*/
+@media(max-width: 460px){
+    .input{
+       width: 100%;
+   }
+   
+}
+
+
+
+/*TABLET*/
+@media(min-width:460px){
+    .input{
+        width: 100%;
+    }
+
+}
+/*PC*/
+@media(min-width:769px){
+    .input{
+        width: 70%;
+    }
 }
