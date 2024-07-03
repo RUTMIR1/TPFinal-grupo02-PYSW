@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+   /*
+    background-image: url('../../../assets/images/novedade.png');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center; 
+    background-attachment: fixed; 
+    height: 100vh; 
+    */
+    background: linear-gradient(to top,rgba(78, 37, 30, 0.785) ,white );
+    height: 100vh;
+}
+
+img{
+    width: 100%;
+}
+.cabezal, .contenido{
+    
+    padding: 20px;
+}
+
+  
+  .acordeon .accordion-body {
+    background: linear-gradient(to top,rgba(122, 86, 79, 0.785) ,rgb(139, 107, 107) );
+    color: rgb(255, 255, 255); /* Color del texto */
+  }
+  
+  .acordeon .accordion-button.collapsed {
+    background-color: #614434; /* Color de fondo del botón cuando está colapsado */
+    color: rgb(255, 255, 255); /* Color del texto cuando está colapsado */
+  }
+  
+  .acordeon .accordion-button:not(.collapsed) {
+    background-color: #614434; /* Color de fondo del botón cuando está expandido */
+    color: white; /* Color del texto cuando está expandido */
+  }
+  
+  .acordeon .accordion-button:hover {
+    background-color: #432818; /* Color del botón al pasar el mouse */
+    color: #ffffff;
+  }
+
+/**************MEDIA QUERIES*************************/
+
+/*MOVIL*/
+@media(max-width: 460px){
+    .acordeon{
+       width: 90%;
+       margin: auto;
+   }
+   
+}
+
+
+
+/*TABLET*/
+@media(min-width:460px){
+    img{
+        height: 30vh;
+        width: 100%;
+    }
+
+}
+/*PC*/
+@media(min-width:769px){
+    img{
+        height: 30vh;
+        width: 100%;
+    }
+}

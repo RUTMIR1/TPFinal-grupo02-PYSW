@@ -1,4 +1,3 @@
-<p>header works!</p>
 <header class="container-fluid mb-5 header-perso px-2">
     <nav class="navbar navbar-expand-lg bg-body-tertiary row container-fluid navbar-expand-md bg-body-tertiary  d-flex justify-content-center align-items-center p-0 pt-2 pb-2">
 
@@ -18,8 +17,8 @@
                           <!-- [routerLink]="['home']" -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn link-perso px-2 py-2" title="Divisas"> Algo </a>  
-                        <!-- [routerLink]="['divisas']" -->
+                        <a class="nav-link btn link-perso px-2 py-2"  [routerLink]="['novedades']" title="Novedades"> Novedades </a>  
+                       
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn link-perso px-2 py-2"  title="Productos"> Algo </a>
@@ -29,7 +28,7 @@
                 </ul>
 
                 <div class="col-md-4 d-flex align-items-end justify-content-around justify-content-lg-end gap-lg-2">
-                    <button class="btn btn-perso ">Ingresar</button>
+                    <button class="btn btn-perso " [routerLink]="['login']">Ingresar</button>
                     <button class="btn btn-perso ">Registrar</button>
                 </div>
             </div>

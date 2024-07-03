@@ -4,28 +4,21 @@
     box-sizing: border-box;
   }
 body{
-    background-image: url('../../../assets/images/Contour Line.svg');
-    background-size: cover;
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center center; /* Centra la imagen */
-    background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
+    background: linear-gradient(to top,rgba(78, 37, 30, 0.785) ,white );
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
     
 }
 img{
-    width: 100%;
+    width: 90%;
  
 }
 
 form{
-    width: 50%;
-    background-color: rgba(65, 65, 65, 0.89);
+    width: 60%;
+    background-color:rgba(78, 37, 30, 0.5);
     padding: 30px;
     border-radius:15px;
-    color: rgb(214, 214, 214);
+    color: rgb(255, 255, 255);
     border-right: 1px solid #1f1f1f;
     border-bottom: 1px solid #1f1f1f;
     box-shadow: 10px 10px 20px rgb(0, 0, 0);
@@ -40,20 +33,25 @@ a{
     font-weight: bold;
 
 }
-.btn{
-    padding: 10px;
-    color: rgb(255, 255, 255);
-    font-family:cursive;
-    background-color:#8d0197;
-    border:1px solid #1f1f1f;
-    transition: all 450ms;
-}
-.btn:hover{
-    color: aliceblue;
-    background-color: #5741ff
-}
+
 input{
     margin-top: 15px;
+}
+.btn-perso{
+    background-color:rgb(78 37 30);
+    box-sizing: content-box;
+    transition: transform 0.5s linear;
+    border-radius: 7px;
+    border: 2px solid transparent;
+    color: white;
+    padding: 10px;
+    font-weight: 500;
+}
+
+.btn-perso:hover{
+    transform: scale(1.06,1.06);
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.49);
+    background-color: rgb(121, 69, 60);
 }
 /**************MEDIA QUERIES*************************/
 
@@ -62,7 +60,19 @@ input{
     .input{
        width: 100%;
    }
-   
+   #check{
+        
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+form{
+    width: 85vw;
+    height: 60vh;
+    
+ }
+ .btn-perso{
+     margin-top: 50px;
+     }
 }
 
 
@@ -72,11 +82,37 @@ input{
     .input{
         width: 100%;
     }
-
+    #check{
+        
+        margin-top: 15px;
+        margin-bottom: 25px;
+    }
+    form{
+       width: 40vw;
+       height: 60vh;
+    }
+    .btn-perso{
+        margin-top: 50px;
+        }
 }
 /*PC*/
 @media(min-width:769px){
     .input{
         width: 70%;
+        height: 35px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    #check{
+        
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    form{
+        width: 65%;
+        height: 70vh;
+    }
+    .btn-perso{
+    margin-top: 50px;
     }
 }
