@@ -28,19 +28,13 @@ label{
     color: white;
     font-weight:bold ;
 }
-a{
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
 
-}
 
-input{
+input, .form-select{
     margin-top: 15px;
     background-color: rgb(235, 239, 243);
 }
-.btn-perso{
-    background-color:rgb(78 37 30);
+.btn-persoRe , .btn-persoCa{
     box-sizing: content-box;
     transition: transform 0.5s linear;
     border-radius: 7px;
@@ -48,12 +42,28 @@ input{
     color: white;
     padding: 10px;
     font-weight: 500;
+    margin-top: 40px;
 }
 
-.btn-perso:hover{
+.btn-persoRe:hover{
     transform: scale(1.06,1.06);
     box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.49);
-    background-color: rgb(121, 69, 60);
+    background-color: rgb(0, 68, 255);
+}
+.btn-persoCa:hover{
+    transform: scale(1.06,1.06);
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.49);
+    background-color: rgb(253, 40, 2);
+}
+.form-select{
+    padding: 10px;
+}
+.container{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
 }
 /**************MEDIA QUERIES*************************/
 
@@ -72,10 +82,11 @@ form{
     height: 60vh;
     
  }
- .btn-perso{
-     margin-top: 50px;
-     }
+.form-select{
+        margin-top: 40px;
+     } 
 }
+
 
 
 
@@ -93,9 +104,12 @@ form{
        width: 40vw;
        height: 55vh;
     }
-    .btn-perso{
-        margin-top: 50px;
-        }
+     .form-select{
+       margin-top: 40px;
+    }
+    .btn-persoRe , .btn-persoCa{
+        margin-top: 80px;
+    }    
 }
 /*PC*/
 @media(min-width:769px){
@@ -120,18 +134,17 @@ form{
         align-items: center;
         justify-content: center;
     }
-    .btn-perso{
-    margin-top: 30px;
-    margin-right: 190px;
-    margin-bottom: 5px;
-    }
     .form-control{
         
         margin-right: 20px;
         width: 15vw;
     }
-    p{
-        margin-right: 30px;
-        font-size: 15px;
+    .form-select{
+        width: 15vw;
+        margin-right: 20px;
     }
+    .btn-persoRe , .btn-persoCa{
+        margin-top: 40px;
+    }
+    
 }
