@@ -22,7 +22,6 @@ export const routes: Routes = [
         //para el dueño
         path: 'usuarios', component:CrudUsuariosComponent
     },
-    { 
-        path: '**', redirectTo: 'anuncios', pathMatch: 'full' 
-    }
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: '**', component: HomeComponent }
 ];
