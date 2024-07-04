@@ -1,0 +1,46 @@
+[
+    {
+        "_id": "6686fc8938d04d290deb4f8e",
+        "superficie": 20,
+        "habilitado": true,
+        "pathimages": "galeriatest.jpg",
+        "alquilado": false,
+        "promocion": false,
+        "costoMes": 25000,
+        "promociones": [],
+        "__v": 0
+    },
+    {
+        "_id": "6686fcca38d04d290deb4f91",
+        "superficie": 25,
+        "habilitado": true,
+        "pathimages": "galeriatest.jpg",
+        "alquilado": false,
+        "promocion": false,
+        "costoMes": 35000,
+        "promociones": [],
+        "__v": 0
+    },
+    {
+        "_id": "6686fcd438d04d290deb4f93",
+        "superficie": 30,
+        "habilitado": true,
+        "pathimages": "galeriatest.jpg",
+        "alquilado": false,
+        "promocion": false,
+        "costoMes": 55000,
+        "promociones": [],
+        "__v": 0
+    },
+    {
+        "_id": "6686fd2438d04d290deb4f96",
+        "superficie": 20,
+        "habilitado": false,
+        "pathimages": "galeriatest.jpg",
+        "alquilado": false,
+        "promocion": false,
+        "costoMes": 18000,
+        "promociones": [],
+        "__v": 0
+    }
+]

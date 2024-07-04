@@ -1,13 +1,13 @@
-<main class="container-fluid d-flex flex-column aling-items-center ">
+<main class="container-fluid d-flex flex-column aling-items-center p-0">
 
 
     <h2 class="text-center mb-5">Locales Disponibles Para Alquilar</h2>
 
     <div class="row row-cols-1 row-cols-lg-2 container-fluid py-3 px-0 justify-content-evenly ">
 
-        <div *ngFor="let local of arrayLocales" class="card mb-3 col-8 col-md-4 p-3 card-perso mx-md-4 mb-5" style="max-width: 500px; ">
+        <div *ngFor="let local of arrayLocales" class="card mb-3 col-10 col-md-5 p-3 card-perso mx-md-4 mb-5 mx-lg-2" style="max-width: 520px; ">
             <div class="container-fluid d-flex aling-items-center justify-content-center">
-              <img src="../../../assets/images/{{local.pathimagen}}" class="card-img-top card-img-perso" alt="{{local.nombre}}">
+              <img src="../../../assets/images/{{local.pathimages}}" class="card-img-top card-img-perso" alt="{{local.nombre}}">
             </div>
             <div class="card-body">
               <h5 class="card-title"> {{local.nombre}} </h5>
@@ -28,12 +28,12 @@
                               <li class="list-group-item li-perso">
                                   <div class="d-flex align-items-around">
                                       <div>
-                                          <b>Habilidato:</b> {{local.habilitado}} <!--<span *ngIf="local.habilitado" > </span> <span *ngIf="!local.habilitado" ></span> -->
+                                          <b>Habilidato:</b> {{local.habilitado}} 
                                       </div>
                                       <span *ngIf="local.habilitado" class="text-body-tertiary s-perso"> solo para clientes registrados </span> 
                                   </div>
                               </li>
-                              <li class="list-group-item li-perso text-success"> <b>Costo: $</b> {{local.costomes}} </li>
+                              <li class="list-group-item li-perso text-success"> <b>Costo: $</b> {{local.costoMes}} </li>
                           </ul>
                         </div>
                     </div>
@@ -42,6 +42,7 @@
             </div>
         </div>
 
+<!--<span *ngIf="local.habilitado" > </span> <span *ngIf="!local.habilitado" ></span> -->
 
     </div>
 

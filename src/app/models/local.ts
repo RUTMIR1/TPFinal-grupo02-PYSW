@@ -4,20 +4,30 @@ export class Local {
     nombre!: string;
     superficie!: number;
     habilitado!: boolean;
-    costomes!: number;
-    pathimagen!: string;
+    pathimages!: string;
     alquilado!: boolean;
+    costoMes!: number;
+    promociones!: [];
 
-    //constructor(){};
-
-    constructor(_id:string,nombre: string,superficie: number, habilitado: boolean, costomes: number, pathimagen: string, alquilado: boolean){
-        this._id = _id;
-        this.nombre = nombre;
-        this.superficie = superficie;
-        this.habilitado = habilitado;
-        this.costomes = costomes;
-        this.pathimagen = pathimagen;
-        this.alquilado = alquilado;
+    constructor(){
+        this.nombre = "";
+        this.superficie = 0;
+        this.habilitado = true;
+        this.pathimages = "";
+        this.alquilado = false;
+        this.costoMes = 0;
+        this.promociones = [];
     }
+
+    // constructor(_id:string, nombre: string, superficie: number, habilitado: boolean, costoMes: number, pathimages: string, alquilado: boolean){
+    //     this._id = _id;
+    //     this.nombre = nombre;
+    //     this.superficie = superficie;
+    //     this.habilitado = habilitado;
+    //     this.pathimages = pathimages;
+    //     this.alquilado = alquilado;
+    //     this.costoMes = costoMes;
+    //     this.promociones = [];
+    // }
 
 }
