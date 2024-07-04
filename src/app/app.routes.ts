@@ -34,6 +34,10 @@ export const routes: Routes = [
         path: 'usuarios', component:CrudUsuariosComponent
     },
     { 
-        path: '**', redirectTo: 'home', pathMatch: 'full' 
+      path: '', redirectTo: '/home', pathMatch: 'full' 
+    },
+    { 
+      path: '**', component: HomeComponent 
     }
+
 ];

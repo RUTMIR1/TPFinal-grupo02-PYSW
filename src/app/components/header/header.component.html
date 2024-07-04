@@ -24,8 +24,13 @@
                     
                 </ul>
 
-                <div class="col-md-4 d-flex align-items-end justify-content-center justify-content-lg-end gap-2">
-                    <button class="btn btn-perso " [routerLink]="['login']" title="Login" >Ingresar</button>
+                <div class="col-md-4 d-flex align-items-end justify-content-around justify-content-lg-end gap-lg-2">
+                    <button *ngIf="!loginService.userLoggedIn()" class="btn btn-perso" [routerLink]="['login']">
+                        Ingresar
+                    </button>
+                    <button class="btn btn-perso" *ngIf="loginService.userLoggedIn()" [routerLink]="['login']" (click)="logout()">
+                        {{loginService.userLogged()}} (logout)
+                    </button>
                     <button class="btn btn-perso " [routerLink]="['registro']" title="registro" >Registrar</button>
                 </div>
             </div>
