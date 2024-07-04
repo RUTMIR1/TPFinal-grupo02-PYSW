@@ -1,0 +1,54 @@
+<main class="container-fluid d-flex flex-column align-items-center justify-content-center my-5">
+
+    <h2 class="mb-5"> FORMULARIO DE LOCALES  </h2>
+
+    <form action="" method="post" class="container-fluid py-5 mb-5 row col-6 d-flex flex-column align-items-center rounded-4 border-perso ">
+        
+        <div class="mb-3 d-flex align-items-center justify-content-center col-8 m-auto gap-3">
+          <label for="nombre" class="form-label">Nombre: </label>
+          <input type="text" class="form-control input-focus" id="nombre" name="nombre" required  [(ngModel)]="Local.nombre" >
+        </div>
+
+        <div class="mb-3 d-flex align-items-center justify-content-center col-8 m-auto gap-3">
+            <label for="superficie" class="form-label">superficie: </label>
+            <input type="number" class="form-control input-focus" id="superficie" name="superficie"  [(ngModel)]="Local.superficie" >
+            <!-- <input type="image" class="form-control" src="" alt="" id="imagen" name="imagen" [(ngModel)]="Local.imagen"> -->
+        </div>
+
+        <div class="mb-3 d-flex align-items-center justify-content-center col-8 m-auto gap-3">
+            <p class="form-label" >Habilitado:</p>
+            <select id="destacado"  class="form-select input-focus" name="destacado" required aria-label="Default select example" [(ngModel)]="Local.habilitado">
+                <option value="" selected disabled>Habilitado para alquilar:</option>
+                <option value="true">Habilitado</option>
+                <option value="false">No Habilitado</option>
+              </select>
+        </div>
+
+        <div *ngIf="accion == 'update'" class="mb-3 d-flex align-items-center justify-content-center col-8 m-auto gap-3">
+            <p class="form-label" >Habilitado:</p>
+            <select id="destacado"  class="form-select input-focus" name="destacado" required aria-label="Default select example" [(ngModel)]="Local.alquilado">
+                <option value="" selected disabled>Alquilado:</option>
+                <option value="true">Alquilado</option>
+                <option value="false">No Alquilado</option>
+              </select>
+        </div>
+
+        <div class="mb-3 d-flex align-items-center justify-content-center col-8 m-auto gap-3">
+            <label for="costoMes" class="form-label">Coste de su alquiler: </label>
+            <input type="number" class="form-control input-focus" id="costoMes" name="costoMes" required  [(ngModel)]="Local.costoMes" >
+        </div>
+
+
+        <!-- IMAGEN AUN NO USABLE -->
+        <div class="mb-3 d-flex align-items-center justify-content-center col-8 m-auto gap-3">
+            <label for="pathimages" class="form-label">IMAGEN: </label>
+            <input type="file" src="../../../assets/images/" id="pathimages" name="pathimages" alt="Enviar" [(ngModel)]="Local.pathimages" >
+
+        </div>
+
+    
+        <button *ngIf="accion == 'new'" type="submit" class="btn btn-perso col-2" (click)="registrar()"  >Agregar</button>
+        <button *ngIf="accion == 'update'" type="button" class="btn btn-perso col-2" (click)="actualizar()" > Actualizar </button>
+    </form>
+
+</main>

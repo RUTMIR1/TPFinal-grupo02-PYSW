@@ -8,11 +8,15 @@ import { CrudUsuariosComponent } from './components/crud-usuarios/crud-usuarios.
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LocalesFormComponent } from './components/locales-form/locales-form.component';
+import { LocalesListComponent } from './components/locales-list/locales-list.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule,RouterOutlet,CrudUsuariosComponent, LoginComponent, NovedadesComponent,RegistroComponent,HomeComponent,HeaderComponent,FooterComponent],
+  imports: [RouterModule,RouterOutlet,CrudUsuariosComponent, LoginComponent, NovedadesComponent,RegistroComponent,HomeComponent,HeaderComponent,FooterComponent,
+            LocalesFormComponent, LocalesListComponent
+           ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
