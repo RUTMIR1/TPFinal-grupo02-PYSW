@@ -3,21 +3,29 @@
         <thead>
           <tr>
             <th scope="col"></th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
             <th scope="col">Usuario</th>
             <th scope="col">Email</th>
+            <th scope="col">Contraseña</th>
+            <th scope="col">Telefono</th>
             <th scope="col">Tipo</th>
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-          <tr >
+          <tr *ngFor="let Usuario of Usuarios">
             <th scope="row"></th>
-            <td>juan45</td>
-            <td>cliente1gmail.com</td>
-            <td>Dueño</td>
+            <td>{{Usuario.nombre}}</td>
+            <td>{{Usuario.apellido}}</td>
+            <td>{{Usuario.username}}</td>
+            <td>{{Usuario.email}}</td>
+            <td>{{Usuario.password}}</td>
+            <td>{{Usuario.telefono}}</td>
+            <td>{{Usuario.perfil}}</td>
             <td >
-              <button class="btn btn-warning mx-3 my-1">Modificar</button>
-              <button class="btn btn-danger mx-3 my-1" >Eliminar</button>
+              <button class="btn btn-warning mx-3 my-1" (click)="ModificarUsuario(Usuario._id)">Modificar</button>
+              <button class="btn btn-danger mx-3 my-1" (click)="EliminarUsuario(Usuario._id)">Eliminar</button>
             </td>
           </tr>
         </tbody>

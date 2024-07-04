@@ -19,6 +19,9 @@ export const routes: Routes = [
         path: 'registro', component: RegistroComponent 
     },
     { 
+        path: 'registro/:id', component: RegistroComponent 
+    },
+    { 
         //para el dueño
         path: 'usuarios', component:CrudUsuariosComponent
     },
