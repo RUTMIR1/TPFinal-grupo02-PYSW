@@ -1,0 +1,35 @@
+body{
+    background: linear-gradient(to top,rgba(78, 37, 30, 0.785) ,white );
+    height: 100vh;
+}
+table thead tr th{
+    background-color:rgba(78, 37, 30, 0.785);
+    color: aliceblue;
+}
+table{
+    border: 2px solid black;
+}
+
+/**************MEDIA QUERIES*************************/
+
+/*MOVIL*/
+@media(max-width: 460px){
+    table{
+        width: 20vw;
+       
+    }
+}
+/*TABLET*/
+@media(min-width:460px){
+    table{
+        width: 90vw;
+        margin: auto;
+    }
+}
+/*PC*/
+@media(min-width:769px){
+   table{
+    width: 70vw;
+    margin: auto;
+   }
+}

@@ -1,0 +1,49 @@
+<main class="container-fluid d-flex flex-column aling-items-center ">
+
+
+    <h2 class="text-center mb-5">Locales Disponibles Para Alquilar</h2>
+
+    <div class="row row-cols-1 row-cols-lg-2 container-fluid py-3 px-0 justify-content-evenly ">
+
+        <div *ngFor="let local of arrayLocales" class="card mb-3 col-8 col-md-4 p-3 card-perso mx-md-4 mb-5" style="max-width: 500px; ">
+            <div class="container-fluid d-flex aling-items-center justify-content-center">
+              <img src="../../../assets/images/{{local.pathimagen}}" class="card-img-top card-img-perso" alt="{{local.nombre}}">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"> {{local.nombre}} </h5>
+
+                <div class="acordeon col-12">
+                  <div class="accordion " id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header col-12">
+
+                          <button class="cabezal accordion-button col-12 accordion-perso" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse'+local._id" aria-expanded="true" [attr.aria-controls]="'#collapse'+local._id">
+                          Caracteristicas
+                          </button>
+                        </h2>
+
+                        <div [attr.id]="'collapse' + local._id" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                          <ul class="list-group">
+                              <li class="list-group-item li-perso"> <b>Superficie:</b> {{local.superficie}}m² </li>
+                              <li class="list-group-item li-perso">
+                                  <div class="d-flex align-items-around">
+                                      <div>
+                                          <b>Habilidato:</b> {{local.habilitado}} <!--<span *ngIf="local.habilitado" > </span> <span *ngIf="!local.habilitado" ></span> -->
+                                      </div>
+                                      <span *ngIf="local.habilitado" class="text-body-tertiary s-perso"> solo para clientes registrados </span> 
+                                  </div>
+                              </li>
+                              <li class="list-group-item li-perso text-success"> <b>Costo: $</b> {{local.costomes}} </li>
+                          </ul>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</main>
