@@ -1,0 +1,42 @@
+<div class="container-xxl">
+    <header>
+        <h1>Gestión de Novedades</h1>
+    </header>
+    <main>
+        <button class="dark-button" (click)="registrarNovedad()">
+            <i class="bi bi-plus-circle"></i>
+            Registrar Novedad
+        </button>
+        <div class="table-responsive">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" id="novedadesTable">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let n of novedades; let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{n.fecha | date: 'dd/MM/yyyy'}}</td>
+                        <td>{{n.descripcion}}</td>
+                        <td>{{n.estado}}</td>
+                        <td>{{n.usuario.apellido}}, {{n.usuario.nombre}}</td>
+                        <td>
+                            <button type="button" class="btn btn-warning me-2">
+                                <i class="bi bi-pen-fill"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger" (click)="eliminarNovedad(n)">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>

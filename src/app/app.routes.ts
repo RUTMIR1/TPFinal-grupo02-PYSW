@@ -8,6 +8,7 @@ import { AlquilerComponent } from './components/alquiler/alquiler.component';
 import { LocalesListComponent } from './components/locales-list/locales-list.component';
 import { LocalesFormComponent } from './components/locales-form/locales-form.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { CrudNovedadesComponent } from './components/crud-novedades/crud-novedades.component';
 
 export const routes: Routes = [
     {
@@ -40,6 +41,9 @@ export const routes: Routes = [
     },
     {
         path: 'alquileres', component: AlquilerComponent
+    },
+    {
+        path: 'crud-novedades', component: CrudNovedadesComponent
     },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: HomeComponent }

@@ -11,12 +11,13 @@ import { LoginComponent } from './components/login/login.component';
 import { AlquilerComponent } from './components/alquiler/alquiler.component';
 import { LocalesFormComponent } from './components/locales-form/locales-form.component';
 import { LocalesListComponent } from './components/locales-list/locales-list.component';
+import { CrudNovedadesComponent } from './components/crud-novedades/crud-novedades.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterModule,RouterOutlet,CrudUsuariosComponent, LoginComponent, NovedadesComponent,RegistroComponent,HomeComponent,HeaderComponent,FooterComponent,
-            LocalesFormComponent, LocalesListComponent,AlquilerComponent
+            LocalesFormComponent, LocalesListComponent,AlquilerComponent, CrudNovedadesComponent
            ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
