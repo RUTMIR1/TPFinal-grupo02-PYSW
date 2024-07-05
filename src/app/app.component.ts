@@ -9,13 +9,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { AlquilerComponent } from './components/alquiler/alquiler.component';
+import { LocalesFormComponent } from './components/locales-form/locales-form.component';
+import { LocalesListComponent } from './components/locales-list/locales-list.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-
-  imports: [RouterModule,RouterOutlet,CrudUsuariosComponent, LoginComponent, NovedadesComponent,RegistroComponent,HomeComponent,HeaderComponent,FooterComponent, AlquilerComponent],
-
+  imports: [RouterModule,RouterOutlet,CrudUsuariosComponent, LoginComponent, NovedadesComponent,RegistroComponent,HomeComponent,HeaderComponent,FooterComponent,
+            LocalesFormComponent, LocalesListComponent,AlquilerComponent
+           ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
