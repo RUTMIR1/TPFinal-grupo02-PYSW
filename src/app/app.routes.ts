@@ -4,6 +4,7 @@ import { NovedadesComponent } from './components/novedades/novedades.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { CrudUsuariosComponent } from './components/crud-usuarios/crud-usuarios.component';
 import { HomeComponent } from './components/home/home.component';
+import { AlquilerComponent } from './components/alquiler/alquiler.component';
 import { LocalesListComponent } from './components/locales-list/locales-list.component';
 import { LocalesFormComponent } from './components/locales-form/locales-form.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
@@ -37,11 +38,10 @@ export const routes: Routes = [
     {
         path: 'perfil/:id', component: PerfilComponent
     },
-    { 
-      path: '', redirectTo: '/home', pathMatch: 'full' 
+    {
+        path: 'alquileres', component: AlquilerComponent
     },
-    { 
-      path: '**', component: HomeComponent 
-    }
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: '**', component: HomeComponent }
 
 ];
