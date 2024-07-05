@@ -24,6 +24,9 @@ export const routes: Routes = [
         path: 'registro', component: RegistroComponent 
     },
     { 
+        path: 'registro/:id', component: RegistroComponent
+    },
+    {
         path: 'locales-list', component: LocalesListComponent 
     },
     { 
