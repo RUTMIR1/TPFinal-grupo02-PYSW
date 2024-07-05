@@ -1,0 +1,29 @@
+{
+  "nombre":" Juan Alberto",
+  "apellido": "Perez",
+  "email": "usuario1@gmail.com",
+  "username":"JuanPe",
+  "password":"1234",
+  "telefono": 1234,
+  "perfil": "administrador"
+}
+
+{
+  "nombre":"Pedro",
+  "apellido": "Alvarez",
+  "email": "usuario2@gmail.com",
+  "username":"PedroAl",
+  "password":"1234",
+  "telefono": 1234,
+  "perfil": "propietario"
+}
+
+{
+  "nombre":"Ramiro",
+  "apellido": "Martinez",
+  "email": "usuario3@gmail.com",
+  "username":"RamiroMa",
+  "password":"1234",
+  "telefono": 1234,
+  "perfil": "dueño"
+}
