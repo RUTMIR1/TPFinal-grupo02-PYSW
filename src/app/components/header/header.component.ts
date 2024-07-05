@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { CommonModule } from '@angular/common';
+import { routes } from '../../app.routes';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +14,7 @@ import { CommonModule } from '@angular/common';
 export class HeaderComponent {
   constructor(public loginService: LoginService) { }
 
- logout(){
+ logout():void{
  this.loginService.logout();
  }
-
 }

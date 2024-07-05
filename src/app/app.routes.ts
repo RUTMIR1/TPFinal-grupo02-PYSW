@@ -6,6 +6,7 @@ import { CrudUsuariosComponent } from './components/crud-usuarios/crud-usuarios.
 import { HomeComponent } from './components/home/home.component';
 import { LocalesListComponent } from './components/locales-list/locales-list.component';
 import { LocalesFormComponent } from './components/locales-form/locales-form.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 export const routes: Routes = [
     {
@@ -32,6 +33,9 @@ export const routes: Routes = [
     { 
         //para el dueño
         path: 'usuarios', component:CrudUsuariosComponent
+    },
+    {
+        path: 'perfil/:id', component: PerfilComponent
     },
     { 
       path: '', redirectTo: '/home', pathMatch: 'full' 

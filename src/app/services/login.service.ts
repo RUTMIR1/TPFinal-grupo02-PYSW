@@ -6,7 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
-  constructor(private _http:HttpClient){}
+
+  hostbase:string;
+  constructor(private _http:HttpClient){
+    this.hostbase = 'http://localhost:3000/api/usuario/';
+  }
   login(user: string, pass: string):Observable<any>{
     let httpOptions = {
       headers: new HttpHeaders({
@@ -17,7 +21,7 @@ export class LoginService {
       username: user,
       password: pass
     });
-    return this._http.post('http://localhost:3000/api/usuario/' + 'login', body, httpOptions);
+    return this._http.post(this.hostbase + 'login', body, httpOptions);
   }
 
   logout() {
