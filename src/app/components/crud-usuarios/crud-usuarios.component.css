@@ -1,35 +1,57 @@
-body{
+html,body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.cajaPadre{
     background: linear-gradient(to top,rgba(78, 37, 30, 0.785) ,white );
     height: 100vh;
 }
-table thead tr th{
-    background-color:rgba(78, 37, 30, 0.785);
-    color: aliceblue;
-}
-table{
-    border: 2px solid black;
+
+
+.container-xxl {
+    background-color: white;
+    padding: 1.3rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
 }
 
-/**************MEDIA QUERIES*************************/
+header {
+    border-radius: 0.3rem;
+    background: #333;
+    color: #fff;
+    min-height: 4.375rem;
+    border-bottom: #777 0.188rem solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-/*MOVIL*/
-@media(max-width: 460px){
-    table{
-        width: 20vw;
-       
-    }
+header h1 {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 1.5rem;
 }
-/*TABLET*/
-@media(min-width:460px){
-    table{
-        width: 90vw;
-        margin: auto;
-    }
+
+main {
+    padding: 1.3rem;
+    background: #fff;
+    min-height: 25rem;
+    margin-bottom: 0.2rem;
 }
-/*PC*/
-@media(min-width:769px){
-   table{
-    width: 70vw;
-    margin: auto;
-   }
+
+.dark-button {
+    border-radius: 0.3rem;
+    margin-bottom: 1.3rem;
+    padding: 0.625rem 1.3rem;
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.dark-button:hover {
+    background: rgb(68, 68, 68)
 }

@@ -1,22 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Usuario } from '../../models/usuario';
 import { UsuarioService } from '../../services/usuario.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @Component({
   selector: 'app-crud-usuarios',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,DataTablesModule],
   templateUrl: './crud-usuarios.component.html',
   styleUrl: './crud-usuarios.component.css'
 })
 export class CrudUsuariosComponent {
   Usuarios: Array<Usuario>=[];
 
+
   constructor(private UsuarioService: UsuarioService, private router: Router){
-    this.MostrarUsuarios();
+   this.MostrarUsuarios();
 }
 MostrarUsuarios(){
   this.UsuarioService.getUser().subscribe(
@@ -35,7 +37,7 @@ ModificarUsuario(id:string){
 }
 EliminarUsuario(id:string){
   this.UsuarioService.deleteUser(id).subscribe(
-    (data) =>{
+    data =>{
       alert("Usuario Eliminado")
       this.MostrarUsuarios();
     },
@@ -44,4 +46,6 @@ EliminarUsuario(id:string){
     }
     )
 }
+
+
 }
