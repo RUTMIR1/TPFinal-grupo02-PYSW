@@ -7,8 +7,10 @@ import { Alquiler } from '../models/alquiler';
   providedIn: 'root'
 })
 export class AlquilerService {
-  apiUrl: String = "http://localhost:3000/api/";
-  constructor(private _http: HttpClient) { }
+  apiUrl: String;
+  constructor(private _http: HttpClient) { 
+    this.apiUrl  = "http://localhost:3000/api/";
+  }
   
 
   getAlquileres(): Observable<any>{
@@ -17,7 +19,7 @@ export class AlquilerService {
         
       }),
     }
-    return this._http.get(this.apiUrl + "alquiler", httpOptions);
+    return this._http.get(this.apiUrl+"alquiler", httpOptions);
   }
 
   addAlquiler(alquiler: Alquiler): Observable<any>{
@@ -30,13 +32,23 @@ export class AlquilerService {
     return this._http.post(this.apiUrl + "alquiler", body, httpOptions);
   }
 
-  editAlquiler(alquiler: Alquiler): Observable<any>{
+  editAlquiler(alquiler: Alquiler, id:string): Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),
     }
     var body = JSON.stringify(alquiler);
-    return this._http.put(this.apiUrl + "/alquiler/" + alquiler._id, body, httpOptions);
+    return this._http.put(this.apiUrl + "alquiler/" + id, body, httpOptions);
+  }
+
+  getAlquilerById(id: string):Observable<any>{
+    const httpOptions = {}
+    return this._http.get(this.apiUrl + "alquiler/" + id, httpOptions);
+  }
+
+  deleteAlquiler(id: string): Observable<any>{
+    const httpOptions = {}
+    return this._http.delete(this.apiUrl + "alquiler/" + id, httpOptions);
   }
 }

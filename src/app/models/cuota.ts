@@ -1,20 +1,18 @@
 import { Pago } from "./pago";
 
 export class Cuota {
-    _id!: string;
     monto!: number;
-    fechaCuota!: string;
-    fechaVencimiento!: string;
+    fechaCuota!: Date;
+    fechaVencimiento!: Date;
     estado!: string;
-    pago!: Pago;
+    pago!: Array<Pago>;
 
-    constructor(_id: string, monto: number, fechaCuota: string, fechaVencimiento: string, estado: string, pago: Pago)
+    constructor(monto?: number, fechaCuota?: Date, fechaVencimiento?: Date, estado?: string, pago?: Array<Pago>)
     {
-        this._id = _id;
-        this.monto = monto;
-        this.fechaCuota = fechaCuota;
-        this.fechaVencimiento = fechaVencimiento;
-        this.estado = estado;
-        this.pago = pago;
+        this.monto = monto ?? 0;
+        this.fechaCuota = fechaCuota ?? new Date();
+        this.fechaVencimiento = fechaVencimiento ?? new Date();
+        this.estado = estado ?? "";
+        this.pago = pago ?? [];
     }
 }
