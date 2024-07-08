@@ -4,6 +4,8 @@ import { AlquilerService } from '../../services/alquiler.service';
 import { Alquiler } from '../../models/alquiler';
 import { CommonModule } from '@angular/common';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
+import { Local } from '../../models/local';
 
 @Component({
   selector: 'app-alquiler',
@@ -12,23 +14,22 @@ import { Subject } from 'rxjs';
   templateUrl: './alquiler.component.html',
   styleUrl: './alquiler.component.css'
 })
-export class AlquilerComponent implements OnDestroy, OnInit {
-  dtOptions: any = {};
-  alquileres!: Array<Alquiler>;
-  dtTrigger: Subject<any> = new Subject<any>();
+export class AlquilerComponent implements OnInit {
+  alquileres: Array<Alquiler> = [];
+  locales: Array<Local> = [];
+  propietarios: Array<string> = [];
 
-  constructor(private alquilerService: AlquilerService){
+  constructor(private router:Router,private alquilerService: AlquilerService){
     
   }
 
   obetenerAlquileres(){
     this.alquilerService.getAlquileres().subscribe(
-      (data:any) => {
+      (data) => {
         this.alquileres = data;
-        this.dtTrigger.next(0);
-        console.log(data);
+        console.log(this.alquileres);
       },
-      (error:any) => {
+      (error) => {
         console.log(error);
       }
     )
@@ -36,20 +37,25 @@ export class AlquilerComponent implements OnDestroy, OnInit {
 
   ngOnInit(){
     this.obetenerAlquileres();
-    this.dtOptions = {
-      language: {
-        url: 'https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
-      },
-      responsive: true
-    }
-    
-  }
-
-  ngOnDestroy(): void {
-    this.dtTrigger.unsubscribe();
   }
 
   registrarAlquiler(): void{
-    alert("formulario de alquiler");
+    this.router.navigate(['alquileres-form']);    
+  }
+
+  modificarAlquiler(id:string):void{
+    this.router.navigate(['alquileres-form',id]);
+  }
+
+  eliminarAlquiler(id:string):void{
+    this.alquilerService.deleteAlquiler(id).subscribe(
+      (response) => {
+        this.obetenerAlquileres();
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
   }
 }

@@ -9,6 +9,7 @@ import { LocalesListComponent } from './components/locales-list/locales-list.com
 import { LocalesFormComponent } from './components/locales-form/locales-form.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { CrudNovedadesComponent } from './components/crud-novedades/crud-novedades.component';
+import { AlquilerFormComponent } from './components/alquiler-form/alquiler-form.component';
 
 export const routes: Routes = [
     {
@@ -48,7 +49,12 @@ export const routes: Routes = [
     {
         path: 'crud-novedades', component: CrudNovedadesComponent
     },
+    {
+        path: 'alquileres-form', component: AlquilerFormComponent
+    },
+    {
+        path: 'alquileres-form/:id', component: AlquilerFormComponent
+    },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: HomeComponent }
-
 ];
