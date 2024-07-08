@@ -1,24 +1,29 @@
-<div class="row">
-  <div class="cajaForm col-xs-12 col-md-6">
-    <form>
-      <div class="mb-3 mt-3">
-        <label for="username" class="form-label">Username</label>
-        <input type="text" class="input form-control" id="username" name="username" aria-describedby="emailHelp" [(ngModel)]="userform.username">
+<div class="background-perso">
+  <div class="container">
+    <div class="row">
+      <div class="cajaForm col-md-6">
+          <form class="cajaForm">
+                <div class="mb-3 mt-3">
+                  <label for="username" class="form-label">Nombre de usuario</label>
+                  <input type="text" class="input form-control" id="username" name="username" aria-describedby="emailHelp" [(ngModel)]="userform.username">
+                </div>
+                <div class="mb-3 mt-3">
+                  <label for="password" class="form-label">Contraseña</label>
+                  <input type="password" class="input form-control" id="password" name="password" [(ngModel)]="userform.password">
+                </div>
+                <div class="mb-3 mt-3" >
+                  <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">
+                  <label class="form-check-label mx-3" for="rememberMe">Recordar</label>
+                  <p class="mx-4 mt-3">Olvidaste tu contraseña? <a href="#">Click aqui</a></p>
+                </div>
+                <button type="submit" class="btn btn-perso" (click)="login()">Iniciar Sesión</button>
+          </form>
       </div>
-      <div class="mb-3 mt-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="input form-control" id="password" name="password" [(ngModel)]="userform.password">
+    
+      <div class="cajaImg col-md-6 d-none d-md-block">
+            <img class="" src="../../../assets/images/Login.svg" alt="image">
       </div>
-      <div class="form-check" id="check">
-        <input type="checkbox" class="form-check-input mt-3 mx-0" id="rememberMe" name="rememberMe">
-        <label class="mt-3 mx-2 form-check-label" for="rememberMe">Recordar</label>
-        <p class="mx-4 mt-3">Olvidaste tu contraseña? <a href="#">Click aqui</a></p>
-      </div>
-      <button type="submit" class="btn btn-perso" (click)="login()">Iniciar Sesión</button>
-    </form>
-  </div>
-
-  <div class="mt-5 cajaImg col-md-6 d-none d-sm-block">
-    <img class="" src="../../../assets/images/Login.svg" alt="image">
+    </div>
   </div>
 </div>
+

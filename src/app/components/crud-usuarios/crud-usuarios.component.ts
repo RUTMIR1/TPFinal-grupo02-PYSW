@@ -46,6 +46,8 @@ EliminarUsuario(id:string){
     }
     )
 }
-
+NuevoUser(){
+  this.router.navigate(['registro'])
+}
 
 }
