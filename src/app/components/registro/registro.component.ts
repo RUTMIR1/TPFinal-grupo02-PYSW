@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from '../../models/usuario';
+import { LoginService } from '../../services/login.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registro',
@@ -15,34 +17,49 @@ import { Usuario } from '../../models/usuario';
 export class RegistroComponent {
   accion!:string;
   Usuario!:Usuario;
-
+  perfil!:any;
   constructor(
+    private toastr: ToastrService,
     private activatedRoute: ActivatedRoute,
     private UsuarioService: UsuarioService,
-    private router: Router 
+    private router: Router,
+    public loginService:LoginService 
   ){
-    this.iniciar();
+    if(this.loginService.userLoggedIn()){
+      this.iniciar();
+    }
+    else{
+      this.toastr.error("Debe validarse", 'Ingresar su usuario y clave');
+      this.router.navigate(['login']); 
+    }
+    
   }
 
 
   iniciar(){
     this.Usuario= new Usuario();
   }
-
+ 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
-      if (params['id'] == "0") {
-        this.accion = "new";
-        this.cargarForm();
-       // console.log(this.ticket._id)
-      } else {
-        this.accion = "update";
-        this.cargarByForm(params['id']);
-       
-      }
-    });
-    
-  }
+    this.perfil = sessionStorage.getItem("perfil");
+      if(this.perfil=='dueño' || this.perfil=='administrativo'){
+            this.activatedRoute.params.subscribe(params => {
+              if (params['id'] == "0") {
+                this.accion = "new";
+                this.cargarForm();
+              // console.log(this.ticket._id)
+              } else {
+                this.accion = "update";
+                this.cargarByForm(params['id']);
+              
+              }
+            });
+      }else{
+        this.toastr.error("No tiene los permisos para esta accion");
+        this.router.navigate(['home']); 
+      }  
+        
+}
   cargarForm(): void {
     this.Usuario= new Usuario()
     // Inicializar el formulario con valores vacíos o por defecto

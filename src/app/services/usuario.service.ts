@@ -56,6 +56,6 @@ export class UsuarioService {
   public getUsersByPerfil(perfil:string): Observable<any>{
     const httpOptions={
     }
-    return this.http.get(this.urlUser+ '/perfil/' + perfil,httpOptions);
+    return this.http.get(this.urlUser+ '/tipo?perfil=' + perfil,httpOptions);
   }
 }
