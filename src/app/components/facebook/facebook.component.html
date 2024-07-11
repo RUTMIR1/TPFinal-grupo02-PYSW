@@ -1,0 +1,23 @@
+<div class="background-perso">
+    <div class="container">
+      <div class="row">
+        <div class="cajaForm col-md-6">
+            <form class="cajaForm">
+                  
+                  <div class="mb-3 mt-3">
+                    <label for="msj" class="form-label">Ingrese Mensaje a publicar</label>
+                    <input type="text" class="input form-control" id="msj" [(ngModel)]="mensaje" name="mensaje">
+                  </div>
+                  
+                  <button type="submit" class="btn btn-primary mx-2" (click)="postFb()">Publicar</button>
+                  <button type="submit" class="btn btn-danger mx-2" (click)="redirigir()">Cancelar</button>
+                  <button type="submit" class="btn btn-danger mx-2" (click)="loginWithFacebook()">login</button>
+            </form>
+        </div>
+        
+        <div class="cajaImg col-md-6 d-none d-md-block">
+              <img class="" src="../../../assets/images/Anuncios.svg" alt="image">
+        </div>
+      </div>
+    </div>
+  </div>
