@@ -5,10 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LoginService } from '../../services/login.service';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+
+
 @Component({
   selector: 'app-facebook',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './facebook.component.html',
   styleUrl: './facebook.component.css'
 })
@@ -17,8 +21,14 @@ import { LoginService } from '../../services/login.service';
 
 export class FacebookComponent implements OnInit {
   mensaje: string = "";
-  perfil!:any;
-  constructor(private fb: FacebookService, private router: Router, private toastr: ToastrService, public loginService: LoginService) {
+  perfil!: any;
+  files: { base64: string, safeurl: SafeUrl }[] = [];
+  constructor(
+    private fb: FacebookService,
+    private domSanitizer: DomSanitizer,
+    private router: Router,
+    private toastr: ToastrService,
+    public loginService: LoginService) {
     if (!this.loginService.userLoggedIn()) {
       this.toastr.error("Debe validarse", 'Ingresar su usuario y clave');
       this.router.navigate(['login']);
@@ -33,19 +43,20 @@ export class FacebookComponent implements OnInit {
       this.router.navigate(['home']);
     }
   }
+ 
   postFb() {
     var apiMethod: ApiMethod = "post";
-    this.fb.api('/385195447990917/feed', apiMethod,
+    this.fb.api('/316071514932229/feed', apiMethod,
       {
         "message": this.mensaje,
-        "access_token": "EAAOqRvqQpeYBO9xFqEf5BdpcJfsKEFo7mERH6E5ZC1jlnFrwQC8bVG70Y2UWlbaVC79yFAPB3eztsnCNs50huSexiaHPYs9pinsl4f5xWSWWGVyfEmIBeSxPQM0dY6hQx9lcXZCibJuVcxgKKp7ixZBMsBlVZBIokbbZA1ITQqbeALV0Oou8dnOp1D8YHftalJ0vTM3OtiFUVcaOyZCqKR1NOf6AZDZD"
+        "access_token": "EAAFAJANFrVwBO3V7QMyhW7f2e02CsTcZBOZA96zj6ZCDx6La8p1AvXSNMvx60DjvbfZClVVK1loV48OFZAZA6w9XKgYZBdWEX2XB4PI0R6vxlZAq57sk9oq9Vkq3PFZBnDvBvNZCHasdzJ5U98RFlaHqtv3nPk5crfT9EbBDZAhecYdPZCdpAdlfUnfzdbCs3D0bRO4JK7AHjBiDEZCZAY40AQqC1ZBQIOE9iwQxdsh"
 
       });
     this.toastr.success("publicacion agregada a facebook");
   }
   iniciarFb() {
     let initParams: InitParams = {
-      appId: '1031646758348262',
+      appId: '351998394608988',
       autoLogAppEvents: true,
       xfbml: true,
       version: 'v7.0'
@@ -55,7 +66,26 @@ export class FacebookComponent implements OnInit {
   redirigir() {
     this.router.navigate(['/home']);
   }
-
+  /*
+  onFileSelected(event: any) {
+    const files = event.target.files;
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      //inicio lector de archivo
+      const reader = new FileReader();
+      //declaro el comportamiento del onload cuando el reader carga o lee algo
+      reader.onload = () => {
+        let base64 = reader.result as string;
+       
+        let safeurl: SafeUrl = this.domSanitizer.bypassSecurityTrustUrl(base64);
+        console.log(safeurl)
+        this.files.push({ 'base64': base64, 'safeurl': safeurl });
+      };
+      //hago que el reader lea un archivo
+      reader.readAsDataURL(file);
+    }
+  }
+*/
 }
 
 
