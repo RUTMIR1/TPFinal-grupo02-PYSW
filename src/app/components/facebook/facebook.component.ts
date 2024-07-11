@@ -16,12 +16,6 @@ export class FacebookComponent implements OnInit {
   mensaje: string = "";
   constructor(private fb: FacebookService,private router: Router,private toastr: ToastrService,) {
     this.iniciarFb();
-    let initParams: InitParams = {
-      appId: '1031646758348262',
-      xfbml: true,
-      version: 'v3.2'
-    };
-    fb.init(initParams);
   }
   ngOnInit(): void {
   }
@@ -30,7 +24,7 @@ export class FacebookComponent implements OnInit {
     this.fb.api('/385195447990917/feed', apiMethod,
       {
         "message": this.mensaje,
-        "access_token": "EAAOqRvqQpeYBO3NJZCjqjYblkRTzRZC6ZB7XwUcFr72iIHdah6kePy2FSkhTyHztgZAZABeEf5OUWG8UPTDj1jOUcewZA7v3G7m5U2Ns8mNW1HTV4ZC3Y3TZAzXge1GbXq6xbWrFs2gX5SF7gSfPICqNS2B8J1VmR3KSGOVJlUIKO0lxE523vDuGpDGqiFZAod2MldNFFBseYEAxQzEFTBQZDZD"
+        "access_token": "EAAOqRvqQpeYBO9xFqEf5BdpcJfsKEFo7mERH6E5ZC1jlnFrwQC8bVG70Y2UWlbaVC79yFAPB3eztsnCNs50huSexiaHPYs9pinsl4f5xWSWWGVyfEmIBeSxPQM0dY6hQx9lcXZCibJuVcxgKKp7ixZBMsBlVZBIokbbZA1ITQqbeALV0Oou8dnOp1D8YHftalJ0vTM3OtiFUVcaOyZCqKR1NOf6AZDZD"
   
       });
       this.toastr.success("publicacion agregada a facebook");
@@ -47,16 +41,7 @@ export class FacebookComponent implements OnInit {
   redirigir(){
     this.router.navigate(['/home']);
   }
-  loginWithFacebook(): void {
- 
-    this.fb.login()
-    .then((response: LoginResponse) =>
-    {
-    console.log(response);
-    
-    })
-    .catch((error: any) => console.error(error));
-    }
+  
 }
  
 
