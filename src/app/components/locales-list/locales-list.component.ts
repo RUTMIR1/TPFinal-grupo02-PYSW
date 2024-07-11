@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Local } from '../../models/local';
 import { LocalService } from '../../services/local.service';
 import { Router } from '@angular/router';
 import { DataTablesModule } from "angular-datatables";
 import { Config } from 'datatables.net';
-import { config, Subject } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-locales-list',
@@ -14,11 +14,12 @@ import { config, Subject } from 'rxjs';
   templateUrl: './locales-list.component.html',
   styleUrl: './locales-list.component.css'
 })
-export class LocalesListComponent implements OnInit, AfterViewInit {
+export class LocalesListComponent implements OnInit {
 
-  dtOptions: any = {};
-  dtTrigger: Subject<any> = new Subject<any>();
+  dtOptions: Config = {};
+  mostrar: boolean = true;
   arrayLocales!: Array<Local>;
+  toastrSvc = inject(ToastrService);
 
   constructor(private localService: LocalService, private router: Router) {
     this.obtenerLocales();
@@ -30,11 +31,9 @@ export class LocalesListComponent implements OnInit, AfterViewInit {
     this.localService.getLocales().subscribe(
       data => {
         this.arrayLocales = data;
-        console.log(this.arrayLocales);
-        this.dtTrigger.next(0);
       },
       error => {
-        console.log(error)
+        this.toastrSvc.error("No tiene los permisos para esta accion");
       }
     )
   }
@@ -43,20 +42,9 @@ export class LocalesListComponent implements OnInit, AfterViewInit {
     if (usuarioSession != "nadie") {
       this.arrayLocales = new Array<Local>();
       this.obtenerLocales();
-      // this.dtOptions = {
-      //   language: {
-      //     url: 'https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
-      //   },
-      //   responsive: true
-      // }
     } else {
       this.router.navigate(['home']);
     }
-
-
-  }
-  ngOnDestroy(): void {
-    this.dtTrigger.unsubscribe();
   }
 
 
@@ -74,36 +62,16 @@ export class LocalesListComponent implements OnInit, AfterViewInit {
   // DELETE, ELIMINA EL LOCAL
   eliminar(id: string) {
     this.localService.deleteLocal(id).subscribe(
-
       (result) => {
-        console.log(result);
-
         if (result.status == 1) {
-          alert("Producto eliminado Correctamente")
+          this.toastrSvc.error("Local "+ this.localService.getLocalById(id) + " eliminado correctamente", "ERROR DELETE");
           this.obtenerLocales();
         }
       },
       error => {
-        console.log(error)
+        this.toastrSvc.error("No se pudo eliminar el Local con id: "+ this.localService.getLocalById(id), "ERROR DELETE");
       }
     );
   }
-
-
-  ngAfterViewInit(): void {
-    this.dtOptions = {
-      language: {
-        url: 'https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
-      },
-      responsive: true
-    };
-
-    // Inicializa DataTables
-    // $(document).ready(() => {
-    //   $('#example').DataTable(this.dtOptions);
-    // });
-  }
-
-
 
 }

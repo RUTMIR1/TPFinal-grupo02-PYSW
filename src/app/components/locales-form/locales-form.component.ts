@@ -23,16 +23,12 @@ export class LocalesFormComponent implements OnInit {
   accion: string = "new";
 
   files: { base64: string, safeurl: SafeUrl }[] = [];
+
   imagen64!: string;
-  //files!: { base64: string, safeurl: SafeUrl }[] = [];
+
   toastrSvc = inject(ToastrService);
 
   @ViewChild('selectHabilitado') selectHabilitadoRef!: ElementRef;
-
-  ngAfterViewInit() {
-    // Acceder al valor seleccionado del select
-    //console.log(this.selectHabilitadoRef.nativeElement.value);
-  }
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private localService: LocalService, private domSanitizer: DomSanitizer) {
     this.iniciarVariable();
@@ -55,6 +51,7 @@ export class LocalesFormComponent implements OnInit {
         }
       })
     } else {
+      this.toastrSvc.error("No tiene los permisos para esta accion");
       this.router.navigate(['home']);
     }
 
