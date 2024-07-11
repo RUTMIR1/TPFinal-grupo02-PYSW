@@ -6,7 +6,7 @@
 <div class="row caja justify-content-center">
     <div class="col-6">
         <h2 class="text-center"> Acciones Disponibles</h2>
-        <button *ngIf="perfil=='propietario'" class="btn btn-perso w-100"> Gestionar Propiedades </button>
+        <button *ngIf="perfil=='propietario'" class="btn btn-perso w-100" (click)="gestionarAlquileres()"> Gestionar Propiedades </button>
         <button *ngIf="perfil=='propietario'" class="btn btn-perso w-100"> Gestionar Promociones </button>
         <button *ngIf="perfil=='dueño'" class="btn btn-perso w-100" (click)="gestionarLocales()" > Gestionar Locales </button>
         <button *ngIf="perfil=='dueño' || perfil=='administrativo'" class="btn btn-perso w-100" (click)="gestionarUsuarios()"> Gestionar Usuarios </button>
