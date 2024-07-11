@@ -39,6 +39,10 @@ export class PerfilComponent implements OnInit{
     this.router.navigate(['usuarios']);
   }
 
+  gestionarPromociones():void{
+    this.router.navigate(['promociones']);
+  }
+
   obtenerUsuario():void{
     this.usuarioService.byUser(this.idperfil).subscribe(
       (response:Usuario) => {
