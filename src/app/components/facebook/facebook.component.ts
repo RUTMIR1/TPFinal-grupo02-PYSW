@@ -4,7 +4,7 @@ import { ApiMethod } from 'ngx-facebook/providers/facebook';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-
+import { LoginService } from '../../services/login.service';
 @Component({
   selector: 'app-facebook',
   standalone: true,
@@ -12,12 +12,26 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './facebook.component.html',
   styleUrl: './facebook.component.css'
 })
+
+
+
 export class FacebookComponent implements OnInit {
   mensaje: string = "";
-  constructor(private fb: FacebookService,private router: Router,private toastr: ToastrService,) {
-    this.iniciarFb();
+  perfil!:any;
+  constructor(private fb: FacebookService, private router: Router, private toastr: ToastrService, public loginService: LoginService) {
+    if (!this.loginService.userLoggedIn()) {
+      this.toastr.error("Debe validarse", 'Ingresar su usuario y clave');
+      this.router.navigate(['login']);
+    }
   }
   ngOnInit(): void {
+    this.perfil = sessionStorage.getItem("perfil");
+    if (this.perfil == 'dueño' || this.perfil == 'administrativo' || this.perfil == 'propietario') {
+      this.iniciarFb();
+    } else {
+      this.toastr.error("No tiene los permisos para esta accion");
+      this.router.navigate(['home']);
+    }
   }
   postFb() {
     var apiMethod: ApiMethod = "post";
@@ -25,9 +39,9 @@ export class FacebookComponent implements OnInit {
       {
         "message": this.mensaje,
         "access_token": "EAAOqRvqQpeYBO9xFqEf5BdpcJfsKEFo7mERH6E5ZC1jlnFrwQC8bVG70Y2UWlbaVC79yFAPB3eztsnCNs50huSexiaHPYs9pinsl4f5xWSWWGVyfEmIBeSxPQM0dY6hQx9lcXZCibJuVcxgKKp7ixZBMsBlVZBIokbbZA1ITQqbeALV0Oou8dnOp1D8YHftalJ0vTM3OtiFUVcaOyZCqKR1NOf6AZDZD"
-  
+
       });
-      this.toastr.success("publicacion agregada a facebook");
+    this.toastr.success("publicacion agregada a facebook");
   }
   iniciarFb() {
     let initParams: InitParams = {
@@ -38,10 +52,10 @@ export class FacebookComponent implements OnInit {
     };
     this.fb.init(initParams);
   }
-  redirigir(){
+  redirigir() {
     this.router.navigate(['/home']);
   }
-  
+
 }
- 
+
 
