@@ -36,6 +36,7 @@ export class CuotaComponent implements OnInit{
     this.alquilerService.getAlquilerById(id).subscribe(
       (response) => {
         this.cuotas = response.cuotas;
+        this.cuotaActual();
         console.log(this.cuotas);
       },
       (error) => {
@@ -44,17 +45,36 @@ export class CuotaComponent implements OnInit{
     )
   }
   cargarPagos(pagos2:any):void{
-    this.pagos = [];
-    for(let e of pagos2){
-      this.pagoService.getPago(e).subscribe(
-        (response) => {
-          this.pagos.push(response);
-        },
-        (error) => {
-          console.log(error);
-        }
-      )
+    this.pagos = pagos2;
+    //for(let e of pagos2){
+     // this.pagoService.getPago(e).subscribe(
+      //  (response) => {
+        //  this.pagos.push(response);
+       // },
+       // (error) => {
+      //    console.log(error);
+      //  }
+     // )
+    //} 
+  }
+  cuotaActual():void{
+    for(let e of this.cuotas){
+      if(e.estado == 'NoPagado'){
+        e.estado = 'actual';
+        break;
+      }
     }
+  }
+  cambiarPagado(e:Pago):void{
+    e.estado = 'Pagado';
+    this.pagoService.updatePago(e).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
   registrarPago(id:string):void{
     this.router.navigate(['pago',id,this.idAlquiler]);

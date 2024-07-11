@@ -25,7 +25,7 @@
                         <td><button class="btn bg-primary" (click)="cargarPagos(a.pago)">
                             ver Pagos
                         </button>
-                        <button *ngIf="perfil == 'propietario'" class="btn bg-success" (click)="registrarPago(a._id)">
+                        <button *ngIf="perfil == 'propietario'" class="btn bg-success" (click)="registrarPago(a._id)" [disabled]="a.estado != 'actual'">
                             Abonar
                         </button>
                         </td>
@@ -50,6 +50,7 @@
                         <th scope="col">tipo</th>
                         <th scope="col">enlacePago</th>
                         <th scope="col">fecha</th>
+                        <th *ngIf="perfil=='administrativo' || perfil == 'dueño'" scope="col">acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,6 +63,11 @@
                             <a [href]="e.enlacePago" target="_blank"> Pagar MercadoPago</a>
                         </td>
                         <td>{{e.fecha | date: "dd/MM/yyyy"}}</td>
+                        <td *ngIf="perfil=='administrativo' || perfil == 'dueño'">
+                            <button class="btn btn-success" (click)="cambiarPagado(e)">
+                                Pagado
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>

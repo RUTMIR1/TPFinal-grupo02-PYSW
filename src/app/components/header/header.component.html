@@ -31,7 +31,7 @@
                     <button class="btn btn-perso" *ngIf="loginService.userLoggedIn()" [routerLink]="['login']" (click)="logout()">
                         {{loginService.userLogged()}} (logout)
                     </button>
-                    <button class="btn btn-perso" *ngIf="loginService.userLoggedIn()" [routerLink]="['perfil/:id']">
+                    <button class="btn btn-perso" *ngIf="loginService.userLoggedIn()" [routerLink]="['perfil']">
                         Mi Perfil
                     </button>
                    <!-- <button class="btn btn-perso " [routerLink]="['registro']" title="registro" >Registrar</button> -->

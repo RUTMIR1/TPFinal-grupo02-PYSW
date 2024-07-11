@@ -82,6 +82,10 @@ export class PagoComponent implements OnInit {
         if(this.idCuota == e._id){
           e.pago.push(response.pagoGuardado);
           console.log(e.pago);
+          this.limite();
+          if(this.limiteMonto == 0){
+            e.estado = "Pagado";
+          }
           break;
         }
       }
@@ -136,16 +140,8 @@ export class PagoComponent implements OnInit {
       if(e._id == this.idCuota){
         this.limiteMonto = e.monto;
         for(let a of e.pago){
-          indice = a;
-          this.pagoService.getPago(indice).subscribe(
-            (response) => {
-              this.limiteMonto -= response.monto;
+              this.limiteMonto -= a.monto;
               console.log(this.limiteMonto);
-            },
-            (error) => {
-              console.error(error);
-            }
-          )
         }
       }
     }
@@ -160,6 +156,8 @@ export class PagoComponent implements OnInit {
       this.avisoLimite = true;
     }
   }
+
+
 
   formatDate(date: Date): string {
     const d = new Date(date);

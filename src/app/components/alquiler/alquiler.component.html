@@ -22,7 +22,21 @@
                     <th scope="col">Costo</th>
                     <th scope="col">Fecha de Inicio</th>
                     <th scope="col">Fecha de Vencimiento</th>
+                    <th scope="col" class="text-center" colspan="3">Local</th>
                     <th scope="col">Acciones</th>
+                </tr>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Superficie</th>
+                    <th scope="col">CostoMes</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -34,6 +48,9 @@
                     <td>{{a.costoAlquiler | currency: '$ ':'code':'1.2'}}</td>
                     <td>{{a.fechaAlquiler | date: 'dd/MM/yyyy'}}</td>
                     <td>{{a.fechaVencimiento | date: 'dd/MM/yyyy'}}</td>
+                    <td>{{a.local.nombre}}</td>
+                    <td>{{a.local.superficie}}</td>
+                    <td>{{a.local.costoMes | currency}}</td>
                     <td>
                         <button *ngIf="perfil == 'administrativo' || perfil == 'dueño'" type="button" class="btn btn-warning me-2" (click)="modificarAlquiler(a._id)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
