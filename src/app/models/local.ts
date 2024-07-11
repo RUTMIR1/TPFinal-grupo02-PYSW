@@ -9,15 +9,15 @@ export class Local {
     costoMes!: number;
     promociones!: [];
 
-    constructor(){
+     constructor(){
         this.nombre = "";
         this.superficie = 0;
-        this.habilitado = true;
+        this.habilitado = false;
         this.pathimages = "";
         this.alquilado = false;
         this.costoMes = 0;
         this.promociones = [];
-    }
+     }
 
     // constructor(_id:string, nombre: string, superficie: number, habilitado: boolean, costoMes: number, pathimages: string, alquilado: boolean){
     //     this._id = _id;
