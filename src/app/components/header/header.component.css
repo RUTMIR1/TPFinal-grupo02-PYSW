@@ -5,43 +5,74 @@ rgb(78 37 30) #432818 #5e3023 #582f0e #895737 #7f5539 #936639
 #ccc5b9
 
 */
-.header-perso{
-    transition: all 0.6s linear;
-}
-.header-perso:hover{
-    box-shadow: 0px 5px 25px 5px rgba(78, 37, 30, 0.433);
-}
-.link-perso{
-    font-weight: 500;
-    text-align: center;
-    border: 2px solid transparent;
-}
-.link-perso:hover{
-    text-decoration:double underline;
-    color: rgb(78 37 30);
-    border: 2px solid transparent;
-}
-.link-perso:active{
-    background-color:rgb(78 37 30);
-    color: white;
+.header-perso {
+  transition: all 0.6s linear;
+  background-color: rgba(255, 255, 255, 0);
+  border-bottom: 1px solid transparent;
 }
 
-.btn-perso{
-    background-color:rgb(78 37 30);
-    box-sizing: content-box;
-    transition: transform 0.5s linear;
-    border-radius: 7px;
-    border: 2px solid transparent;
-    color: white;
-    font-weight: 500;
+.header-perso:hover {
+  box-shadow: 0px 5px 25px 5px rgba(78, 37, 30, 0.433);
 }
+
+.link-perso {
+  font-weight: 500;
+  text-align: center;
+  border: 2px solid transparent;
+}
+
+.link-perso:hover {
+  text-decoration: double underline;
+  color: rgb(78 37 30);
+  border: 2px solid transparent;
+}
+
+.link-perso:active {
+  background-color: rgb(78 37 30);
+  color: white;
+}
+
+.btn-perso {
+  background-color: rgb(78 37 30);
+  box-sizing: content-box;
+  transition: transform 0.5s linear;
+  border-radius: 7px;
+  border: 2px solid transparent;
+  color: white;
+  font-weight: 500;
+}
+
 .btn-perso:active {
-    background-color: transparent;
-    color: rgb(78 37 30);
-    box-shadow: 0 4px 15px 8px rgba(78, 37, 30, 0.734);
-    border: 2px solid rgb(78 37 30);
+  background-color: transparent;
+  color: rgb(78 37 30);
+  box-shadow: 0 4px 15px 8px rgba(78, 37, 30, 0.734);
+  border: 2px solid rgb(78 37 30);
 }
-.btn-perso:hover{
-    transform: scale(1.06,1.06);
-    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.49);
+
+.btn-perso:hover {
+  transform: scale(1.06, 1.06);
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.49);
 }
+
+nav {
+  background-color: inherit;
+}
+
+.bg-body-tertiary {
+  --bs-bg-opacity: 0;
+}
+/* li{
+    border: 2px solid transparent;
+} */
+
+/* li:hover {
+  color: white;
+  box-sizing: content-box;
+  transition: transform 0.5s linear;
+  border-radius: 7px;
+  border: 2px solid rgb(78 37 30); 
+  font-weight: 500;
+}
+li:active{
+    border: 2px solid transparent;
+} */

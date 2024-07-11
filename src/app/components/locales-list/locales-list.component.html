@@ -1,40 +1,47 @@
-<main class="container-fluid px-5 mb-5">
+<main class="container-fluid px-3 px-sm-5 mb-5">
+  <button type="button" class="btn  btn-perso mb-3 ms-5" (click)="agregar()">Agregar</button>
 
-
-    <h2>Productos</h2>
-    <button type="button" class="btn  btn-perso mt-5 mb-3 ms-5" (click)="agregar()" >Agregar</button>
-
-    <div class="overflow-x-scroll px-md-5 mt-3 s">
-        <table class="table table-striped align-middle text-center mb-5 border-perso ">
-            <thead>
-            <tr>
-                <th scope="col"> Nombre</th>
-                <th scope="col"> Superficie </th>
-                <th scope="col"> Habilitado </th>
-                <th scope="col"> Imagen </th>
-                <th scope="col"> Alquilado </th>
-                <th scope="col"> Costo Mensual </th>
-                <th scope="col"> Promociones </th>
-                <th scope="col"> Opciones </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let l of arrayLocales" >
-                <td> {{l.nombre}} </td>
-                <td> {{l.superficie}} </td>
-                <td> {{l.habilitado}} </td>
-                <td> <img src="../../../assets/images/{{l.pathimages}}" class="card-img-top" style="max-height: 50px;" alt="{{l.nombre}}"> </td>
-                <td> {{l.alquilado}} </td>
-                <td> <b>$</b>{{l.costoMes}} </td>
-                <td> 
-                    {{l.promociones}} <!-- Es UN ARRAY FALTA ITERARLO -->
-                </td>
-                <td> 
-                    <button type="button" class="btn btn-danger me-2" (click)="eliminar(l._id)" >Elimnar</button>
-                    <button type="button" class="btn btn-warning" (click)="modificar(l._id)" >Modificar </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+  <div class="p-md-5 mt-3 mx-md-4 mx-lg-5 border-perso s">
+    <h1 class="h1-perso text-center">Gestión de Locales</h1>
+    <div class="overflow-x-scroll px-md-5 mt-3  border-perso s">
+      <table datatable [dtOptions]="dtOptions" class="table table-striped align-middle text-center mb-5" id="example">
+        <!-- <table datatable [dtOptions]="dtOptions" class="row-border hover" id="novedadesTable"> -->
+        <!-- <table datatable [dtOptions]="dtOptions" class="row-border hover"></table> -->
+        <thead>
+          <tr>
+            <th scope="col"> Nombre</th>
+            <th scope="col"> Superficie </th>
+            <th scope="col"> Habilitado </th>
+            <th scope="col"> Imagen </th>
+            <th scope="col"> Alquilado </th>
+            <th scope="col"> Costo Mensual </th>
+            <th scope="col"> Promociones </th>
+            <th scope="col"> Opciones </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let l of arrayLocales">
+            <td> {{l.nombre}} </td>
+            <td> {{l.superficie}} </td>
+            <td> {{l.habilitado}} </td>
+            <!-- <td> <img src="../../../assets/images/{{l.pathimages}}" class="card-img-top" style="max-height: 50px;"
+                alt="{{l.nombre}}"> </td> -->
+            <td>
+              <img [src]="l.pathimages" alt="{{l.nombre}}" class="img-thumbnail" style="max-width: 100px" />
+            </td>
+            <td> {{l.alquilado}} </td>
+            <td> <b>$</b>{{l.costoMes}} </td>
+            <!-- Es UN ARRAY FALTA ITERARLO -->
+            <td>
+              {{l.promociones}}
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger me-2" (click)="eliminar(l._id)">Elimnar</button>
+              <button type="button" class="btn btn-warning" (click)="modificar(l._id)">Modificar </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </main>

@@ -39,3 +39,7 @@
 .accordion-perso:focus{
     box-shadow: 0px 0px 5px 1px rgba(78, 37, 30, 0.433);
 }
+
+main{
+    min-height: 100vh;
+}
