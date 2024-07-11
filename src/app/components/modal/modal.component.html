@@ -1,0 +1,46 @@
+<div id="modal" class="modal fade" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered custom-modal-dialog">
+        <div class="modal-content custom-modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Título</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="contenedor-modal">
+                    <div class="table-responsive">
+                        <table  class="table table-hover dataTable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Monto</th>
+                                    <th scope="col">Fecha Cuota</th>
+                                    <th scope="col">Fecha Vencimiento</th>
+                                    <th scope="col">Estados</th>
+                                    <th scope="col">Pagos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let a of cuotas; let i = index">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{a.monto | currency}}</td>
+                                    <td>{{a.fechaCuota | date:'dd/MM/yyyy'}}</td>
+                                    <td>{{a.fechaVencimiento | date:'dd/MM/yyyy'}}</td>
+                                    <td>{{a.estado}}</td>
+                                    <td>{{a.pago}}</td>
+                                    <td><button class="button button-primary">
+                                        Pagos
+                                    </button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="container-fluid">
+                    <!-- Footer del modal -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

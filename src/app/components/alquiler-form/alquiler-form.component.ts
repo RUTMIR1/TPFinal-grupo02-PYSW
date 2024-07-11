@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Alquiler } from '../../models/alquiler';
@@ -102,7 +102,8 @@ export class AlquilerFormComponent implements OnInit{
   }
 
   modificarAlquiler():void{
-    this.alquilerService.editAlquiler(this.alquiler, this.alquiler._id).subscribe(
+    var id:any = this.alquiler._id;
+    this.alquilerService.editAlquiler(this.alquiler, id).subscribe(
       (response)=>{
         console.log(response);
         this.router.navigate(['/alquileres']);
@@ -153,19 +154,21 @@ export class AlquilerFormComponent implements OnInit{
   }
 
   generarCuotas():void{
+    var numCuota = 0;
     var calculoCuota = (this.alquiler.costoAlquiler*this.intereses)+this.alquiler.costoAlquiler;
     var calculoCuota = calculoCuota/6;
     this.alquiler.cuotas = [];
     let fecha = new Date();
-    let fecha2 = new Date(fecha);
-    fecha.setMonth(fecha.getMonth() - 1);
+      let fecha2 = new Date(fecha);
+      fecha.setMonth(fecha.getMonth() - 1);
     for(let i = 1; i <= 6; i++){
+      numCuota++; 
       fecha.setMonth(fecha.getMonth() + 1);
-      let cuota = new Cuota(calculoCuota,new Date(), new Date(),"NoPagado",[]);
-      cuota.fechaCuota = fecha;
+      let cuota = new Cuota(undefined,numCuota,calculoCuota,new Date(), new Date(),"NoPagado",[]);
+      cuota.fechaCuota = new Date(fecha);
       //let fecha2 = new Date(cuota.fechaCuota);
       fecha2.setMonth(fecha2.getMonth() + 1);
-      cuota.fechaVencimiento = fecha2;
+      cuota.fechaVencimiento = new Date(fecha2);
       this.alquiler.cuotas.push(cuota);
       console.log(cuota);
     }

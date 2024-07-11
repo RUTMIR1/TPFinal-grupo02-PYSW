@@ -3,7 +3,7 @@ import { Local } from "./local";
 import { Usuario } from "./usuario";
 
 export class Alquiler {
-    _id: any;
+    _id?: string;
     propietario: Usuario;
     local: Local;
     costoAlquiler: number;
@@ -12,8 +12,8 @@ export class Alquiler {
     plazoMes: number;
     cuotas: Array<Cuota>;
     
-    constructor(_id?:string,propietario?: Usuario, local?: Local, costoAlquiler?: number, fechaAlquiler?:Date, fechaVencimiento?:Date, plazoMes?: number, cuotas?: Array<Cuota>){
-        this._id = _id ?? null;
+    constructor(_id?:string ,propietario?: Usuario, local?: Local, costoAlquiler?: number, fechaAlquiler?:Date, fechaVencimiento?:Date, plazoMes?: number, cuotas?: Array<Cuota>){
+        this._id = _id;
         this.propietario = propietario ?? new Usuario();
         this.local = local ?? new Local();
         this.costoAlquiler = costoAlquiler ?? 0;
