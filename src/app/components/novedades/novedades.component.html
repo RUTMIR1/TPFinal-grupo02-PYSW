@@ -1,46 +1,36 @@
-<body class="row">
-    <div class="acordeon mx-3 mt-5 col-md-5">
-       <div class="accordion" id="accordionExample">
-         <div class="accordion-item">
-             <h2 class="accordion-header">
-               <button class="cabezal accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-               Ascensor nuevo
-               </button>
-             </h2>
-             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-               <div class="contenido accordion-body">
-                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nostrum quaerat explicabo excepturi voluptas eveniet ratione neque, ex itaque maxime consectetur necessitatibus quo dicta hic nemo inventore sint corrupti aspernatur.
-               </div>
-             </div>
-         </div>
-         <div class="accordion-item">
-           <h2 class="accordion-header">
-             <button class="cabezal accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-               Baño en reparacion
-             </button>
-           </h2>
-           <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-             <div class="contenido accordion-body">
-               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio obcaecati beatae nihil molestiae quos rerum quia impedit, voluptatem dicta libero consectetur dolore illo labore eaque repellendus explicabo cum aperiam placeat?
-             </div>
-           </div>
-         </div>
-         <div class="accordion-item">
-           <h2 class="accordion-header">
-             <button class="cabezal accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-               Entrada trasera
-             </button>
-           </h2>
-           <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-             <div class="contenido accordion-body">
-                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum rerum consectetur ea hic at alias dolores eaque beatae, magnam illum vitae accusantium voluptate tempora! Odio iusto fugiat earum ducimus harum.
-             </div>
-           </div>
-         </div>
-       </div>
-   </div>
-   
-   <div class="mt-5 mx-5 col-md-5 d-none d-sm-block">
-     <img class="" src="../../../assets/images/Novedades.svg" alt="image">
-   </div>
- </body>
+<main class="container-fluid d-flex flex-column aling-items-center p-0">
+
+  <h1 class="text-center mb-5">NOVEDADES</h1>
+
+  <div class="row container-fluid">
+    <div class="acordeon px-3 col-md-5">
+
+      <div *ngFor="let novedad of arrayNovedades" class="accordion mb-2" id="accordionExample">
+
+        <div  class="accordion-item">
+          <!-- TITULO -->
+          <h2 class="accordion-header">
+            <button class="cabezal accordion-button" type="button" data-bs-toggle="collapse"
+              [attr.data-bs-target]="'#collapse'+novedad._id" aria-expanded="true" [attr.aria-controls]="'#collapse'+novedad._id">
+               fecha de Anuncio: {{novedad.fecha |date:'dd/MM/yy' }}
+            </button>
+          </h2>
+          <!-- DESCRIPCION Y CUERPO -->
+          <div [attr.id]="'collapse' + novedad._id" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+
+            <div class="contenido accordion-body">{{novedad.descripcion}}</div>
+
+            <p class="ps-3 py-2"> Publicado por: {{novedad.usuario.perfil}}</p>
+            <p class="ps-3 py-2"> Estado: {{novedad.estado}}</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-5 d-none d-sm-block">
+      <img class="" src="../../../assets/images/Novedades.svg" alt="image">
+    </div>
+  </div>
+</main>

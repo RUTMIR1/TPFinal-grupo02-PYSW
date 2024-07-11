@@ -1,0 +1,32 @@
+{
+  "fecha": {
+    "$date": "2024-07-10T03:00:00.000Z"
+  },
+  "descripcion": "Las luces del tercer pasillo no funcionan",
+  "estado": "En reparación",
+  "usuario": {
+    "$oid": "6689aea8495f10df49cfe062"
+  },
+}
+
+{
+  "fecha": {
+    "$date": "2024-07-09T03:00:00.000Z"
+  },
+  "descripcion": "EL día del 09/07/24 el establecimientó estará cerrado por el feriado",
+  "estado": "Aviso",
+  "usuario": {
+    "$oid": "6689aeba495f10df49cfe066"
+  },
+}
+
+{
+  "fecha": {
+    "$date": "2024-07-12T03:00:00.000Z"
+  },
+  "descripcion": "EL día del 12/07/24 el establecimientó estará cerrado por reparaciones del sistema electrico",
+  "estado": "En curso",
+  "usuario": {
+    "$oid": "6689aea8495f10df49cfe062"
+  },
+}
