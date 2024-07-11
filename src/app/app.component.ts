@@ -15,6 +15,7 @@ import { LocalesListComponent } from './components/locales-list/locales-list.com
 import { CrudNovedadesComponent } from './components/crud-novedades/crud-novedades.component';
 
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
