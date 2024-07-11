@@ -24,6 +24,10 @@ img{
     padding: 20px;
 }
 
+p{
+  background-color: rgba(122, 86, 79, 0.785);
+  color: rgb(255, 255, 255);
+}
   
   .acordeon .accordion-body {
     background: linear-gradient(to top,rgba(122, 86, 79, 0.785) ,rgb(139, 107, 107) );
