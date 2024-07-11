@@ -5,7 +5,7 @@
   "username":"JuanPe",
   "password":"1234",
   "telefono": 1234,
-  "perfil": "administrador"
+  "perfil": "administrativo"
 }
 
 {

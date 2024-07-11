@@ -31,6 +31,6 @@ export class PerfilComponent implements OnInit{
     this.router.navigate(['alquileres']);
   }
   gestionarUsuarios():void{
-    this.router.navigate(['registro']);
+    this.router.navigate(['usuarios']);
   }
 }

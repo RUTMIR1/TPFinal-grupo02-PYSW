@@ -55,3 +55,10 @@ main {
 .dark-button:hover {
     background: rgb(68, 68, 68)
 }
+.background-perso{
+    background: linear-gradient(to top,rgba(78, 37, 30, 0.785) ,white );
+    min-height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
