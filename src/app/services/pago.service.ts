@@ -41,4 +41,14 @@ export class PagoService {
     };
     return this.http.get(this.baseUrl+id,httpOptions);
   }
+
+  updatePago(pago:Pago):Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    let body = JSON.stringify(pago);
+    return this.http.put(this.baseUrl,body,httpOptions);
+  }
 }

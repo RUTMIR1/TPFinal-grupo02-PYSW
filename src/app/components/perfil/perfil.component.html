@@ -1,11 +1,20 @@
 <div class="row caja justify-content-center">
     <div class="col-6">
-        
+        <h1 class="text-black">Datos de Usuario</h1>
+            <h5>Nombre Completo</h5>
+            <p>{{usuario.nombre}} {{usuario.apellido}}</p>
+            <h5>Correo</h5>
+            <p>{{usuario.email}}</p>
+            <h5>Telefono</h5>
+            {{usuario.telefono}}
+            <h5>Perfil</h5>
+            <p>{{usuario.perfil}}</p>
     </div>
 </div>
 <div class="row caja justify-content-center">
     <div class="col-6">
-        <h2 class="text-center"> Acciones Disponibles</h2>
+        <h2 class="text-center text-black"> Acciones Disponibles</h2>
+        <button *ngIf="perfil=='dueño'" class="btn btn-perso w-100"> Estadistica </button>
         <button *ngIf="perfil=='propietario'" class="btn btn-perso w-100" (click)="gestionarAlquileres()"> Gestionar Propiedades </button>
         <button *ngIf="perfil=='propietario'" class="btn btn-perso w-100"> Gestionar Promociones </button>
         <button *ngIf="perfil=='dueño'" class="btn btn-perso w-100" (click)="gestionarLocales()" > Gestionar Locales </button>

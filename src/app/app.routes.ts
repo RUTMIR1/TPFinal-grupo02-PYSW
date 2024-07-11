@@ -43,7 +43,7 @@ export const routes: Routes = [
         path: 'usuarios', component:CrudUsuariosComponent
     },
     {
-        path: 'perfil/:id', component: PerfilComponent
+        path: 'perfil', component: PerfilComponent
     },
     {
         path: 'alquileres', component: AlquilerComponent
