@@ -52,4 +52,10 @@ export class UsuarioService {
     let body= JSON.stringify(user)
     return this.http.post(this.urlUser,body,httpOptions);
   }
+
+  public getUsersByPerfil(perfil:string): Observable<any>{
+    const httpOptions={
+    }
+    return this.http.get(this.urlUser+"/perfil/"+ perfil,httpOptions);
+  }
 }

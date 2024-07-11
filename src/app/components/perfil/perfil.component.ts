@@ -26,4 +26,11 @@ export class PerfilComponent implements OnInit{
   gestionarLocales():void{
     this.router.navigate(['locales-list']);
   }
+
+  gestionarAlquileres():void{
+    this.router.navigate(['alquileres']);
+  }
+  gestionarUsuarios():void{
+    this.router.navigate(['usuarios']);
+  }
 }

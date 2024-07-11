@@ -1,49 +1,50 @@
-<body class="">
+<div class="background-perso">
+  <div class="container mb-5 mt-5">
     <div class="row">
-      <div class="cajaForm col-xs-12 col-md-6">
-        
-        <form >
-          <div class=" mb-3 mt-3">
-            <label for="" class="form-label">Nombre </label>
-            <input type="text" class="input form-control"value="{{Usuario.nombre}}" name="nombre" [(ngModel)]="Usuario.nombre" >
-          </div>
-          <div class=" mb-3 mt-3">
-            <label for="" class="form-label">Apellido </label>
-            <input type="text" class="input form-control" value="{{Usuario.apellido}}" name="apellido" [(ngModel)]="Usuario.apellido">
-          </div>
-          <div class=" mb-3 mt-3">
-            <label for="" class="form-label">Usuario </label>
-            <input type="text" class="input form-control" value="{{Usuario.username}}" name="username" [(ngModel)]="Usuario.username">
-          </div>
-          <div class=" mb-3 mt-3">
-            <label for="" class="form-label">Email </label>
-            <input type="email" class="input form-control" value="{{Usuario.email}}" name="email" [(ngModel)]="Usuario.email">
-          </div>
-          <div class="mb-3 mt-3">
-            <label for="" class="form-label">Contraseña</label>
-            <input type="password" class="input form-control" value="{{Usuario.password}}" name="password" [(ngModel)]="Usuario.password">
-          </div>
-          <div class=" mb-3 mt-3">
-            <label for="" class="form-label">Telefono </label>
-            <input type="number" class="input form-control" value="{{Usuario.telefono}}" name="telefono" [(ngModel)]="Usuario.telefono">
-          </div>
-          <select class="form-select" aria-label="Default select example"  name="perfil" [(ngModel)]="Usuario.perfil">
-            <option selected>Elije tipo de usuario</option>
-            <option value="propietario">propietario</option>
-            <option value="administrador">administrador</option>
-            <option value="dueño">dueño</option>
-          </select>
-          <div class="container">
-            <button type="submit" class="btn btn-primary btn-persoRe" (click)="actualizar()">Registrar</button>
-            <button type="submit" class="btn btn-danger btn-persoCa"(click)="cancelar()">Cancelar</button>
-          </div>
-          
-        </form>
-
+      <div class="cajaForm col-md-6">
+          <form class="form-perso">
+                <div class=" mb-3 mt-3">
+                  <label class="form-label">Nombre </label>
+                  <input type="text" class="input form-control"value="{{Usuario.nombre}}" name="nombre" [(ngModel)]="Usuario.nombre" >
+                </div>
+                <div class=" mb-3 mt-3">
+                  <label class="form-label">Apellido </label>
+                  <input type="text" class="input form-control" value="{{Usuario.apellido}}" name="apellido" [(ngModel)]="Usuario.apellido">
+                </div>
+                <div class=" mb-3 mt-3">
+                  <label class="form-label">Usuario </label>
+                  <input type="text" class="input form-control" value="{{Usuario.username}}" name="username" [(ngModel)]="Usuario.username">
+                </div>
+                <div class=" mb-3 mt-3">
+                  <label class="form-label">Email </label>
+                  <input type="email" class="input form-control" value="{{Usuario.email}}" name="email" [(ngModel)]="Usuario.email">
+                </div>
+                <div class="mb-3 mt-3">
+                  <label class="form-label">Contraseña</label>
+                  <input type="password" class="input form-control" value="{{Usuario.password}}" name="password" [(ngModel)]="Usuario.password">
+                </div>
+                <div class=" mb-3 mt-3">
+                  <label class="form-label">Telefono </label>
+                  <input type="number" class="input form-control" value="{{Usuario.telefono}}" name="telefono" [(ngModel)]="Usuario.telefono">
+                </div>
+                <select class="form-select"  name="perfil" [(ngModel)]="Usuario.perfil">
+                  <option selected>Elije tipo de usuario</option>
+                  <option value="propietario">propietario</option>
+                  <option value="administrativo">administrador</option>
+                  <option value="dueño">dueño</option>
+                </select>
+                <div class="container my-2">
+                  <button type="submit" class="btn btn-primary mt-2 mx-2" (click)="actualizar()">Registrar</button>
+                  <button type="submit" class="btn btn-danger mt-2 mx-2"(click)="cancelar()">Cancelar</button>
+                </div>
+          </form>
       </div>
-  
-      <div class="mt-5 mb-5 cajaImg col-lg-6 d-none d-lg-block">
+      <div class="col-md-6 d-none d-md-block form-image">
         <img class=" " src="../../../assets/images/Registro.svg" alt="image">
       </div>
-    </div>  
-  </body>
+    </div> 
+  </div>      
+</div>
+
+     
+

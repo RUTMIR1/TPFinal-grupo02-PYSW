@@ -1,13 +1,18 @@
-html,body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
 }
-.cajaPadre{
-    background: linear-gradient(to top,rgba(78, 37, 30, 0.785) ,white );
-    height: 100vh;
-}
 
+:host {
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    padding: 1.3rem 0;
+    box-sizing: border-box;
+}
 
 .container-xxl {
     background-color: white;
@@ -54,11 +59,4 @@ main {
 
 .dark-button:hover {
     background: rgb(68, 68, 68)
-}
-.background-perso{
-    background: linear-gradient(to top,rgba(78, 37, 30, 0.785) ,white );
-    min-height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
