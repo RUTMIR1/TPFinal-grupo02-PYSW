@@ -10,6 +10,8 @@ import { LocalesFormComponent } from './components/locales-form/locales-form.com
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { CrudNovedadesComponent } from './components/crud-novedades/crud-novedades.component';
 import { AlquilerFormComponent } from './components/alquiler-form/alquiler-form.component';
+import { CuotaComponent } from './components/cuota/cuota.component';
+import { PagoComponent } from './components/pago/pago.component';
 
 export const routes: Routes = [
     {
@@ -54,6 +56,12 @@ export const routes: Routes = [
     },
     {
         path: 'alquileres-form/:id', component: AlquilerFormComponent
+    },
+    {
+        path: 'cuota/:id', component: CuotaComponent
+    },
+    {
+        path: 'pago/:id/:idAlquiler', component: PagoComponent
     },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: HomeComponent }

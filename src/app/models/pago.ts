@@ -1,14 +1,18 @@
-export class Pago {
-    _id!: string;
-    monto!: number;
-    tipo!: string;
-    fecha!: string;
+import { Usuario } from "./usuario";
 
-    constructor(_id: string, monto: number, tipo: string, fecha: string)
+export class Pago {
+    monto!: number;
+    estado!: string;
+    fecha!: string;
+    enlacePago!:string;
+    usuario!:Usuario;
+
+    constructor(monto?: number, estado?: string, fecha?: string, enlacePago?:string, usuario?: Usuario)
     {
-        this._id = _id;
-        this.monto = monto;
-        this.tipo = tipo;
-        this.fecha = fecha;
+        this.monto = monto ?? 0;
+        this.estado = estado ?? "";
+        this.fecha = fecha ?? "";
+        this.enlacePago = enlacePago ?? "";
+        this.usuario = usuario?? new Usuario();
     }
 }

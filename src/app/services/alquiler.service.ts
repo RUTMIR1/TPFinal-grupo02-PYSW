@@ -51,4 +51,9 @@ export class AlquilerService {
     const httpOptions = {}
     return this._http.delete(this.apiUrl + "alquiler/" + id, httpOptions);
   }
+
+  getAlquileresByUser(id: string):Observable<any>{
+    const httpOptions = {};
+    return this._http.get(this.apiUrl + 'alquiler/usuario/'+id, httpOptions);
+  }
 }

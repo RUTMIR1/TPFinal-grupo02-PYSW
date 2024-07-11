@@ -1,0 +1,70 @@
+<header>
+    <h1>Gestión de Cuotas</h1>
+</header>
+<main>
+    <div class="table-responsive">
+        <div class="table-responsive">
+            <table  class="table table-hover dataTable">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Monto</th>
+                        <th scope="col">Fecha Cuota</th>
+                        <th scope="col">Fecha Vencimiento</th>
+                        <th scope="col">Estados</th>
+                        <th scope="col">Pagos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let a of cuotas">
+                        <th scope="row">{{a.numeroCuota}}</th>
+                        <td>{{a.monto | currency}}</td>
+                        <td>{{a.fechaCuota | date:'dd/MM/yyyy'}}</td>
+                        <td>{{a.fechaVencimiento | date:'dd/MM/yyyy'}}</td>
+                        <td>{{a.estado}}</td>
+                        <td><button class="btn bg-primary" (click)="cargarPagos(a.pago)">
+                            ver Pagos
+                        </button>
+                        <button *ngIf="perfil == 'propietario'" class="btn bg-success" (click)="registrarPago(a._id)">
+                            Abonar
+                        </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<header>
+    <h1>Gestión de Pagos</h1>
+</header>
+<main>
+    <div class="table-responsive">
+        <div class="table-responsive">
+            <table  class="table table-hover dataTable">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">_id</th>
+                        <th scope="col">monto</th>
+                        <th scope="col">tipo</th>
+                        <th scope="col">enlacePago</th>
+                        <th scope="col">fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let e of pagos; let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{e._id}}</td>
+                        <td>{{e.monto| currency}}</td>
+                        <td>{{e.estado}}</td>
+                        <td>
+                            <a [href]="e.enlacePago" target="_blank"> Pagar MercadoPago</a>
+                        </td>
+                        <td>{{e.fecha | date: "dd/MM/yyyy"}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
