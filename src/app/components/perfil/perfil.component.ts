@@ -49,4 +49,7 @@ export class PerfilComponent implements OnInit{
       }
     )
   }
+  irEstadistica():void{
+      this.router.navigate(['estadistica']);
+  }
 }

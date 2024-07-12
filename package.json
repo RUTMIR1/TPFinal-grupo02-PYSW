@@ -24,6 +24,8 @@
     "datatables.net": "^2.0.8",
     "datatables.net-bs4": "^2.0.8",
     "datatables.net-dt": "^2.0.8",
+    "highcharts": "^11.4.6",
+    "highcharts-angular": "^4.0.0",
     "jquery": "^3.7.1",
     "ngx-facebook": "^3.0.0-0",
     "ngx-toastr": "^19.0.0",

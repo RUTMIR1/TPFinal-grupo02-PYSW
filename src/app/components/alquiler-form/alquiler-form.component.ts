@@ -93,6 +93,7 @@ export class AlquilerFormComponent implements OnInit{
     this.alquilerService.addAlquiler(this.alquiler).subscribe(
       (response)=>{
         console.log(response);
+        this.modificarLocal();
         this.router.navigate(['/alquileres']);
       },
       (error)=>{
@@ -188,5 +189,17 @@ export class AlquilerFormComponent implements OnInit{
   }
   getFormattedDate(date: Date): string {
     return date.toISOString().split('T')[0];
+  }
+
+  modificarLocal():void{
+    this.alquiler.local.alquilado = true;
+    this.localService.update(this.alquiler.local).subscribe(
+      (response)=>{
+        console.log(response);
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
   }
 }

@@ -13,6 +13,7 @@ import { AlquilerFormComponent } from './components/alquiler-form/alquiler-form.
 import { CuotaComponent } from './components/cuota/cuota.component';
 import { PagoComponent } from './components/pago/pago.component';
 import { FacebookComponent } from './components/facebook/facebook.component';
+import { EstadisticaComponent } from './components/estadistica/estadistica.component';
 
 export const routes: Routes = [
     {
@@ -66,6 +67,9 @@ export const routes: Routes = [
     },
     {
         path: 'anuncios', component: FacebookComponent
+    },
+    {
+        path:'estadistica', component: EstadisticaComponent
     },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: HomeComponent }
