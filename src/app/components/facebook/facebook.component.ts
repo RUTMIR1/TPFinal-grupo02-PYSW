@@ -26,7 +26,7 @@ export class FacebookComponent implements OnInit {
   perfil!:any;
   promocion!: Promocion;
   files: { base64: string, safeurl: SafeUrl }[] = [];
-  constructor(private fb: FacebookService, private router: Router, private toastr: ToastrService, public loginService: LoginService, private promocionService: PromocionService) {
+  constructor(private fb: FacebookService, private router: Router, private toastr: ToastrService, public loginService: LoginService, public promocionService: PromocionService) {
     if (!this.loginService.userLoggedIn()) {
       this.toastr.error("Debe validarse", 'Ingresar su usuario y clave');
       this.router.navigate(['login']);
@@ -34,6 +34,7 @@ export class FacebookComponent implements OnInit {
   }
   ngOnInit(): void {
     this.perfil = sessionStorage.getItem("perfil");
+    this.promocion = new Promocion();
     if (this.perfil == 'dueño' || this.perfil == 'administrativo' || this.perfil == 'propietario') {
       this.iniciarFb();
     } else {
@@ -51,10 +52,25 @@ export class FacebookComponent implements OnInit {
 
       }).then((response:any)=>{
         if(response && response.id){
-          console.log("ID DE LA PUBLICACIÓN AGREGADA A FACEBOOK: " + response.id);
-          this.promocion.pathing = this.mensaje;
+          this.promocion.descripcion = this.mensaje;
           this.promocion.pathing = response.id;
-          this.promocionService.addPromocion(this.promocion)
+          this.promocionService.addPromocion(this.promocion).subscribe(
+            (result) => {
+              if (result.status == 1) {
+                this.toastr.success('Publicacion guardado con exito!!!', 'PUBLIACION GUARDADA', {
+                  timeOut: 6000,
+                });
+                this.router.navigate(['anuncios-list']);
+              }
+            },
+            // ERROR AL GUARDAR EL ANUNCIO
+            error => {
+              this.toastr.error('No se pudo guardar la publicacion SORY :(', 'ERROR AL GUARDAR PUBLICACIÓN', {
+                timeOut: 6000,
+              });
+              this.router.navigate(['locales-list']);
+            }
+          );
           this.toastr.success("Publicación agregada a facebook");
         } else {
           this.toastr.error("Publicación no agregada");

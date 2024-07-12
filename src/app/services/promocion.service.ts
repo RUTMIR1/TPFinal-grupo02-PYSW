@@ -17,6 +17,7 @@ export class PromocionService {
         
       }),
     }
+    
     return this._http.get(this.apiUrl + "promocion", httpOptions);
   }
 

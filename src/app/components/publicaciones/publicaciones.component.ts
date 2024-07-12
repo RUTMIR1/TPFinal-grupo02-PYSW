@@ -26,6 +26,7 @@ export class PublicacionesComponent {
     this.promocionService.getPromociones().subscribe(
       
       data => {
+        
         this.arrayPromociones = data;
         console.log(this.arrayPromociones);
     },
