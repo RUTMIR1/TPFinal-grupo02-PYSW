@@ -14,6 +14,7 @@ import { LocalesFormComponent } from './components/locales-form/locales-form.com
 import { LocalesListComponent } from './components/locales-list/locales-list.component';
 import { CrudNovedadesComponent } from './components/crud-novedades/crud-novedades.component';
 import { CrudAnunciosComponent } from './components/crud-anuncios/crud-anuncios.component';
+import { PublicacionesComponent } from './components/publicaciones/publicaciones.component';
 
 
 
@@ -21,7 +22,7 @@ import { CrudAnunciosComponent } from './components/crud-anuncios/crud-anuncios.
   selector: 'app-root',
   standalone: true,
   imports: [RouterModule,RouterOutlet,CrudUsuariosComponent, LoginComponent, NovedadesComponent,RegistroComponent,HomeComponent,HeaderComponent,FooterComponent,
-            LocalesFormComponent, LocalesListComponent,AlquilerComponent,HttpClientModule, CrudNovedadesComponent, CrudAnunciosComponent
+            LocalesFormComponent, LocalesListComponent,AlquilerComponent,HttpClientModule, CrudNovedadesComponent, CrudAnunciosComponent, PublicacionesComponent
            ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

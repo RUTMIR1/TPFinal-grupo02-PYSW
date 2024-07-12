@@ -15,10 +15,10 @@ export class PublicacionesComponent {
   arrayPromociones!:Array<Promocion>;
   url!:string;
 
-  constructor( private promocionService: PromocionService) { 
-    this.promocion = new Promocion;
+  constructor( private promocionService: PromocionService) {
+    this.arrayPromociones = new Array<Promocion>();
     this.obtenerPromociones();
-    this.url = "https://graph.facebook.com/v12.0/${" + this.arrayPromociones[0].pathing + "}?access_token=${" +"EAAFAJANFrVwBO3V7QMyhW7f2e02CsTcZBOZA96zj6ZCDx6La8p1AvXSNMvx60DjvbfZClVVK1loV48OFZAZA6w9XKgYZBdWEX2XB4PI0R6vxlZAq57sk9oq9Vkq3PFZBnDvBvNZCHasdzJ5U98RFlaHqtv3nPk5crfT9EbBDZAhecYdPZCdpAdlfUnfzdbCs3D0bRO4JK7AHjBiDEZCZAY40AQqC1ZBQIOE9iwQxdsh}";
+    //this.url = "https://graph.facebook.com/v12.0/${" + this.arrayPromociones[0].pathing + "}?access_token=${" +"EAAFAJANFrVwBO3V7QMyhW7f2e02CsTcZBOZA96zj6ZCDx6La8p1AvXSNMvx60DjvbfZClVVK1loV48OFZAZA6w9XKgYZBdWEX2XB4PI0R6vxlZAq57sk9oq9Vkq3PFZBnDvBvNZCHasdzJ5U98RFlaHqtv3nPk5crfT9EbBDZAhecYdPZCdpAdlfUnfzdbCs3D0bRO4JK7AHjBiDEZCZAY40AQqC1ZBQIOE9iwQxdsh}";
   }
 
   obtenerPromociones() {

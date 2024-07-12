@@ -1,6 +1,16 @@
-<div *ngFor="let promocion of arrayPromociones" class="card mb-3 col-10 col-md-5 p-3 card-perso mx-md-4 mb-5 mx-lg-2" style="max-width: 520px; ">
-    
-    <img [src]="url" alt="1">
-    <img [src]="" alt="1">
-    
-</div>
+<main class="container-fluid d-flex flex-column aling-items-center justify-content-center p-0">
+    <h2 class="text-center mb-5">Promociones </h2>
+    <div class="row row-cols-1 row-cols-lg-2 container-fluid py-3 px-0 justify-content-evenly ">
+        <div *ngFor="let promocion of arrayPromociones"
+            class="card mb-3 col-10 col-md-5 p-3 card-perso mx-md-4 mb-5 mx-lg-2 card-perso" style="max-width: 520px; ">
+
+            <!-- <img src="https://www.facebook.com/{{promocion.pathing}}" alt="1"> -->
+            <img src="../../../assets/images/fondoCard.jpeg" alt="1">
+            <div class="col-12 mt-3">
+                <p class="text-light">{{promocion.descripcion}}</p>
+                <a class="nav-link btn link-perso px-2 py-2" href="https://www.facebook.com/{{promocion.pathing}}"
+                    target="_blank"> Ver publicación</a>
+            </div>
+        </div>
+    </div>
+</main>
