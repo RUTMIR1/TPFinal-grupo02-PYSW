@@ -20,6 +20,16 @@ export class NovedadService {
     return this._http.get(this.apiUrl + "novedad", httpOptions);
   }
 
+  getNovedadByID(id: string): Observable<any>
+  {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        
+      }),
+    }
+    return this._http.get(this.apiUrl + "novedad/" + id , httpOptions);
+  }
+
   addNovedad(novedad: Novedad): Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders({

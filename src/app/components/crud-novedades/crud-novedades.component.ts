@@ -52,7 +52,13 @@ export class CrudNovedadesComponent {
   }
 
   registrarNovedad(): void{
-    alert("formulario de novedad");
+    this.router.navigate(['novedades-form']);
+    //this.router.navigate(['locales-form', id]);
+  }
+
+  modificarNovedad(novedad: Novedad)
+  { 
+    this.router.navigate(['novedades-form', novedad._id]);
   }
 
   eliminarNovedad(novedad: Novedad){

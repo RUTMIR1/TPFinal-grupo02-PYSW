@@ -12,6 +12,7 @@ import { CrudNovedadesComponent } from './components/crud-novedades/crud-novedad
 import { AlquilerFormComponent } from './components/alquiler-form/alquiler-form.component';
 import { CuotaComponent } from './components/cuota/cuota.component';
 import { PagoComponent } from './components/pago/pago.component';
+import { NovedadFormComponent } from './components/novedad-form/novedad-form.component';
 
 export const routes: Routes = [
     {
@@ -49,7 +50,13 @@ export const routes: Routes = [
         path: 'alquileres', component: AlquilerComponent
     },
     {
-        path: 'crud-novedades', component: CrudNovedadesComponent
+        path: 'novedades-list', component: CrudNovedadesComponent
+    },
+    {
+        path: 'novedades-form', component: NovedadFormComponent
+    },
+    {
+        path: 'novedades-form/:id', component: NovedadFormComponent
     },
     {
         path: 'alquileres-form', component: AlquilerFormComponent
