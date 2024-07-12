@@ -18,7 +18,7 @@
         <button *ngIf="perfil=='propietario'" class="btn btn-perso w-100"  (click)="gestionarPublicaciones()"> Gestionar Publicaciones </button>
         <button *ngIf="perfil=='propietario'" class="btn btn-perso w-100" (click)="gestionarAlquileres()"> Gestionar Propiedades </button>
 
-        <button *ngIf="perfil=='administrativo'" class="btn btn-perso w-100" (click)="ListarAnuncios()"> Gestionar Promociones </button>
+        <button *ngIf="perfil=='administrativo'" class="btn btn-perso w-100" (click)="ListarNovedades()"> Gestionar Novedadess </button>
 
         <button *ngIf="perfil=='dueño'" class="btn btn-perso w-100" (click)="gestionarLocales()" > Gestionar Locales </button>
         <button *ngIf="perfil=='dueño' || perfil=='administrativo'" class="btn btn-perso w-100" (click)="gestionarUsuarios()"> Gestionar Usuarios </button>
