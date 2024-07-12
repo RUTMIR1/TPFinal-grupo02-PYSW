@@ -38,6 +38,9 @@ export class PerfilComponent implements OnInit{
   gestionarUsuarios():void{
     this.router.navigate(['usuarios']);
   }
+  gestionarNovedades():void{
+    this.router.navigate(['novedades-list']);
+  }
 
   gestionarPromociones():void{
     this.router.navigate(['promociones']);

@@ -27,7 +27,7 @@
                         <td>{{n.estado}}</td>
                         <td>{{n.usuario.apellido}}, {{n.usuario.nombre}}</td>
                         <td>
-                            <button type="button" class="btn btn-warning me-2">
+                            <button type="button" class="btn btn-warning me-2" (click)="modificarNovedad(n)">
                                 <i class="bi bi-pen-fill"></i>
                             </button>
                             <button type="button" class="btn btn-danger" (click)="eliminarNovedad(n)">

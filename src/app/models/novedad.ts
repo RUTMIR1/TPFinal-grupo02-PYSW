@@ -7,11 +7,9 @@ export class Novedad {
     estado!: string;
     usuario!: Usuario;
 
-    constructor(_id: string, fecha: string, descripcion: string, estado: string, usuario: Usuario){
-        this._id = _id;
-        this.fecha = fecha;
-        this.descripcion = descripcion;
-        this.estado = estado;
-        this.usuario = usuario;
+    constructor(fecha?: string, descripcion?: string, estado?: string){
+        this.fecha = fecha ?? "";
+        this.descripcion = descripcion ?? "";
+        this.estado = estado ?? "";
     }
 }

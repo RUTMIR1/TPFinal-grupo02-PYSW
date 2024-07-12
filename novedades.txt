@@ -1,6 +1,6 @@
 {
   "fecha": {
-    "$date": "2024-07-10T03:00:00.000Z"
+    "$date": "2024-07-10"
   },
   "descripcion": "Las luces del tercer pasillo no funcionan",
   "estado": "En reparación",
@@ -11,7 +11,7 @@
 
 {
   "fecha": {
-    "$date": "2024-07-09T03:00:00.000Z"
+    "$date": "2024-07-09"
   },
   "descripcion": "EL día del 09/07/24 el establecimientó estará cerrado por el feriado",
   "estado": "Aviso",
@@ -22,7 +22,7 @@
 
 {
   "fecha": {
-    "$date": "2024-07-12T03:00:00.000Z"
+    "$date": "2024-07-12"
   },
   "descripcion": "EL día del 12/07/24 el establecimientó estará cerrado por reparaciones del sistema electrico",
   "estado": "En curso",
