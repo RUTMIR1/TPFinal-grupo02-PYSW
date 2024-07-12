@@ -6,6 +6,7 @@ export class Pago {
     estado!: string;
     fecha!: string;
     enlacePago!:string;
+    qrPago!: string;
     usuario!:Usuario;
 
     constructor(numPago?:number,monto?: number, estado?: string, fecha?: string, enlacePago?:string, usuario?: Usuario)
@@ -15,6 +16,7 @@ export class Pago {
         this.estado = estado ?? "";
         this.fecha = fecha ?? "";
         this.enlacePago = enlacePago ?? "";
+        this.qrPago = "";
         this.usuario = usuario?? new Usuario();
     }
 }

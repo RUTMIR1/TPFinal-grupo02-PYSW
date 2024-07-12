@@ -2,13 +2,13 @@
     <header>
         <h1>Gestión de Novedades</h1>
     </header>
-    <main>
+    <main >
         <button class="dark-button" (click)="registrarNovedad()">
             <i class="bi bi-plus-circle"></i>
             Registrar Novedad
         </button>
         <div class="table-responsive">
-            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" id="novedadesTable">
+            <table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" id="novedadesTable">
                 <thead>
                     <tr>
                         <th scope="col">#</th>

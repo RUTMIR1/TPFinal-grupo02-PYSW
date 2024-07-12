@@ -15,6 +15,7 @@ import { PagoService } from '../../services/pago.service';
   styleUrl: './cuota.component.css'
 })
 export class CuotaComponent implements OnInit{
+  qrSeleccionado: string = "";
   cuotas:any = [];
   pagos:any =[];
   perfil:any;
@@ -78,5 +79,10 @@ export class CuotaComponent implements OnInit{
   }
   registrarPago(id:string):void{
     this.router.navigate(['pago',id,this.idAlquiler]);
+  }
+
+  cargarQR(pago: Pago)
+  {
+    this.qrSeleccionado= pago.qrPago;
   }
 }

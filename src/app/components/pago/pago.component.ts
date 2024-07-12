@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Pago } from '../../models/pago';
@@ -12,11 +12,13 @@ import { AlquilerService } from '../../services/alquiler.service';
 import { Usuario } from '../../models/usuario';
 import { Alquiler } from '../../models/alquiler';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
+import { QrCodeService } from '../../services/qr-code.service';
 
 @Component({
   selector: 'app-pago',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, NgOptimizedImage, NgxSpinnerModule],
   templateUrl: './pago.component.html',
   styleUrl: './pago.component.css'
 })
@@ -35,7 +37,7 @@ export class PagoComponent implements OnInit {
   constructor(private paymentService:PaymentService, private router:Router,
     private pagoService:PagoService, private usuarioService:UsuarioService,
     private alquilerService:AlquilerService, private activatedRouter:ActivatedRoute,
-    private toastr:ToastrService
+    private toastr:ToastrService, private spinner: NgxSpinnerService, private qrservice: QrCodeService
   ){
     this.pago.fecha = this.formatDate(new Date());
     this.pago.estado = "Pendiente";
@@ -63,12 +65,22 @@ export class PagoComponent implements OnInit {
     this.item.picture_url = "";
     this.item.quantity = 1;
     this.item.unit_price = this.pago.monto;
+
+    this.spinner.show();
+
     this.paymentService.createPayment(this.item).subscribe(
       (response) => {
         console.log(response);
         this.pago.numPago = this.pagos.length;
         this.pago.enlacePago = response.init_point;
-        this.generarPago();
+        this.generarQr(response.init_point).then((qrCode) => {
+          this.pago.qrPago = qrCode;
+          this.generarPago();
+          this.spinner.hide();
+        }).catch((error) => {
+          console.error("Error al generar el QR:", error);
+        });
+        
       },
       (error) => {
         console.error(error);
@@ -93,9 +105,15 @@ export class PagoComponent implements OnInit {
         }
       }
       this.editarAlquiler();
+      this.toastr.success('Pago Registrado con Éxito!!!', 'PAGO REGISTRADO', {
+        timeOut: 6000,
+      });
     },
       (error) => {
         console.error(error);
+        this.toastr.error('No se pudo Registrar el Pago', 'ERROR AL REGISTRAR PAGO', {
+          timeOut: 6000,
+        });
       }
     );
   }
@@ -180,5 +198,21 @@ export class PagoComponent implements OnInit {
     const year = d.getFullYear();
   
     return [year, month.length < 2 ? '0' + month : month, day.length < 2 ? '0' + day : day].join('-');
+  }
+
+  generarQr(url: string): Promise<string> {
+    return new Promise((resolve, reject) => {
+      this.qrservice.generateBase64(url).subscribe(
+        (data: any) => {
+          const qrCode = 'data:image/png;base64, ' + data.qrcode;
+          console.log(qrCode);
+          resolve(qrCode);
+        },
+        (error: any) => {
+          console.error(error);
+          reject(error);
+        }
+      );
+    });
   }
 }

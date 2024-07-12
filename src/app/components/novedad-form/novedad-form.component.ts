@@ -122,10 +122,16 @@ export class NovedadFormComponent implements OnInit{
       {
         console.log(data);
         this.router.navigate(['novedades-list'])
+        this.toastrSvc.success('Novedad Guardada con exito!!!', 'NOVEDAD GUARDADA', {
+          timeOut: 6000,
+        });    
       },
       (error:any) =>
       {
         console.log(error);
+        this.toastrSvc.error('No se pudo guardar la novedad', 'ERROR AL GUARDAR NOVEDAD', {
+          timeOut: 6000,
+        });
       }
     )
   }
@@ -135,10 +141,16 @@ export class NovedadFormComponent implements OnInit{
     this.novedadService.editNovedad(this.novedad).subscribe(
       (data:any) => {
         console.log(data);
-        this.router.navigate(['novedades-list'])
+        this.router.navigate(['novedades-list']);
+        this.toastrSvc.success('Novedad Modificada con exito!!!', 'NOVEDAD MODIFICADA', {
+          timeOut: 6000,
+        });        
       },
       (error:any) => {
         console.log(error);
+        this.toastrSvc.error('No se pudo Modificar la novedad', 'ERROR AL MODIFICAR NOVEDAD', {
+          timeOut: 6000,
+        });
       }
     )
   }

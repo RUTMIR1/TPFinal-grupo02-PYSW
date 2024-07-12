@@ -49,6 +49,7 @@
                         <th scope="col">monto</th>
                         <th scope="col">tipo</th>
                         <th scope="col">enlacePago</th>
+                        <th scope="col">Código QR</th>
                         <th scope="col">fecha</th>
                         <th *ngIf="perfil=='administrativo' || perfil == 'dueño'" scope="col">acciones</th>
                     </tr>
@@ -62,6 +63,13 @@
                         <td>
                             <a [href]="e.enlacePago" target="_blank"> Pagar MercadoPago</a>
                         </td>
+                        <td>
+                            <button (click)="cargarQR(e)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="bi bi-qr-code-scan"></i>
+                                Ver Código QR
+                            </button>
+                        </td>
+                        <!-- <td><img src="{{e.qrPago}}"></td> -->
                         <td>{{e.fecha | date: "dd/MM/yyyy"}}</td>
                         <td *ngIf="perfil=='administrativo' || perfil == 'dueño'">
                             <button class="btn btn-success" (click)="cambiarPagado(e)">
@@ -71,6 +79,25 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Código QR de Pago</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="qrSeleccionado!=''">
+                    <img src="{{qrSeleccionado}}">
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
         </div>
     </div>
 </main>

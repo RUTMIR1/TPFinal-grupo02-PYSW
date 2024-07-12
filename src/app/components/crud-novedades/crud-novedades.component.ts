@@ -16,10 +16,11 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CrudNovedadesComponent {
   dtOptions: any = {};
-  novedades!: Array<Novedad>;
+  novedades: Array<Novedad> = [];
   dtTrigger: Subject<any> = new Subject<any>(); 
 
   toastrSvc = inject(ToastrService);
+
  
 
   constructor(private novedadService: NovedadService, private router: Router){
@@ -30,7 +31,9 @@ export class CrudNovedadesComponent {
     this.novedadService.getNovedades().subscribe(
       (data:any) => {
         this.novedades = data;
+        
         this.dtTrigger.next(0);
+
         console.log(data);
       },
       (error:any) => {
@@ -46,14 +49,16 @@ export class CrudNovedadesComponent {
         this.toastrSvc.error("No tiene los permisos para esta accion");
         this.router.navigate(['home']);
       } 
-
-    this.obtenerNovedades();
+      else{
+        this.obtenerNovedades();
     this.dtOptions = {
       language: {
         url: 'https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
       },
       responsive: true
     }
+      }
+    
 
   }
 
