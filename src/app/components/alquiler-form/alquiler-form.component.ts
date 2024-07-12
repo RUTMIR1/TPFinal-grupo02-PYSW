@@ -74,6 +74,7 @@ export class AlquilerFormComponent implements OnInit{
   }
 
   cargarAlquiler(id:string):void{
+    
     this.alquilerService.getAlquilerById(id).subscribe(
       (response)=>{
         Object.assign(this.alquiler,response);
@@ -88,6 +89,8 @@ export class AlquilerFormComponent implements OnInit{
   }
 
   crearAlquiler():void{
+    console.log("este es el plazo mes "+this.alquiler.plazoMes);
+    this.alquiler.costoAlquiler = this.alquiler.plazoMes * this.alquiler.local.costoMes;
     this.generarCuotas();
     console.log(this.alquiler);
     this.alquilerService.addAlquiler(this.alquiler).subscribe(
@@ -146,6 +149,10 @@ export class AlquilerFormComponent implements OnInit{
 
   CalcularCostoAlquiler():void{
        this.alquiler.costoAlquiler = this.alquiler.plazoMes * this.alquiler.local.costoMes;
+      console.log(this.alquiler.costoAlquiler);
+      console.log(this.alquiler.local.costoMes);
+      
+      
   }
 
   calcularFecha():void{
