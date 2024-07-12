@@ -42,6 +42,10 @@ export class PerfilComponent implements OnInit{
     this.router.navigate(['novedades-list']);
   }
 
+  gestionarPromociones():void{
+    this.router.navigate(['promociones']);
+  }
+
   obtenerUsuario():void{
     this.usuarioService.byUser(this.idperfil).subscribe(
       (response:Usuario) => {
@@ -51,5 +55,14 @@ export class PerfilComponent implements OnInit{
         console.log(error);
       }
     )
+  }
+  irEstadistica():void{
+      this.router.navigate(['estadistica']);
+  }
+ ListarNovedades():void{
+    this.router.navigate(['novedades-list']);
+  }
+  gestionarPublicaciones():void{
+    this.router.navigate(['anuncios-list']);
   }
 }

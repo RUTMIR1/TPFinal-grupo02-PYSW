@@ -12,7 +12,16 @@ import { CrudNovedadesComponent } from './components/crud-novedades/crud-novedad
 import { AlquilerFormComponent } from './components/alquiler-form/alquiler-form.component';
 import { CuotaComponent } from './components/cuota/cuota.component';
 import { PagoComponent } from './components/pago/pago.component';
+<<<<<<< HEAD
 import { NovedadFormComponent } from './components/novedad-form/novedad-form.component';
+=======
+import { CrudAnunciosComponent } from './components/crud-anuncios/crud-anuncios.component';
+import { FacebookComponent } from './components/facebook/facebook.component';
+import { EstadisticaComponent } from './components/estadistica/estadistica.component';
+import { PublicacionesComponent } from './components/publicaciones/publicaciones.component';
+import { CrudAnunciosComponent } from './components/crud-anuncios/crud-anuncios.component';
+
+>>>>>>> origin/main
 
 export const routes: Routes = [
     {
@@ -53,10 +62,14 @@ export const routes: Routes = [
         path: 'novedades-list', component: CrudNovedadesComponent
     },
     {
+<<<<<<< HEAD
         path: 'novedades-form', component: NovedadFormComponent
     },
     {
         path: 'novedades-form/:id', component: NovedadFormComponent
+=======
+        path: 'anuncios-form', component: FacebookComponent
+>>>>>>> origin/main
     },
     {
         path: 'alquileres-form', component: AlquilerFormComponent
@@ -69,6 +82,18 @@ export const routes: Routes = [
     },
     {
         path: 'pago/:id/:idAlquiler', component: PagoComponent
+    },
+    {
+        path: 'publicaciones', component: PublicacionesComponent
+    },
+    {
+        path: 'anuncios', component: FacebookComponent
+    },
+    {
+        path:'estadistica', component: EstadisticaComponent
+    },
+    {
+        path:'anuncios-list', component: CrudAnunciosComponent
     },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: HomeComponent }
