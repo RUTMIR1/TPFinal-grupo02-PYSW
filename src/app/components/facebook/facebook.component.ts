@@ -47,7 +47,7 @@ export class FacebookComponent implements OnInit {
     this.fb.api('/316071514932229/feed', apiMethod,
       {
         "message": this.mensaje,
-        "access_token": "EAAFAJANFrVwBO0bRAn4VUzSnuI09Wpf2q5As42DifZBM4LbG3jIiPGkQCvcWEOrQnl5sS852RQgNvX9uqsDjesgN5sRtfshX3WKCplxZAV4ZCpcpV4rL2W3K4J5p2d7AVDC7J2j5oi47ug4GeETBn16i7RmXmkSyNt941jwLzHh2J8AqiT8k3PQM1OQKuh7O8KSqjAuN0fVdsmV1uoU3DVDseG3C8mZC"
+        "access_token": "EAAFAJANFrVwBOZBaoWnRVcjdzcDzMh1rPZBdBKZCNB6ZCQZC971jIPriZAYQs3eV9S8BwZABPk6ZCXpJwTah8UCLY8l5AXBvTmpsDSTRHZCtepns96S9923DgbHLmm4SJZAGAIiLVxRbgt95gCZCUYYDhVZBngWa883ddJ8Ta5LlVxap1IZBsKFCA0N8aMctUxwnwgRdyShbv5zMaZCneoZCV09yq4Qj1ZACUW2K7njr"
 
       }).then((response:any)=>{
         if(response && response.id){

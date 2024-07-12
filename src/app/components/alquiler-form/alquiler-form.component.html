@@ -21,7 +21,7 @@
         </div>
         <div class="mb-3 d-flex align-items-center justify-content-center col-8 m-auto gap-3">
             <label for="costo-alquiler" class="form-label">Costo Alquiler: </label>
-            <input type="number" class="form-control input-focus" id="costo-alquiler" name="costo-alquiler" [value]="alquiler.local.costoMes != null ? alquiler.local.costoMes : 0" disabled required  [(ngModel)]="alquiler.costoAlquiler" (change)="CalcularCostoAlquiler()">
+            <input type="number" class="form-control input-focus" id="costo-alquiler" name="costo-alquiler" [value]="alquiler.local.costoMes != null ? alquiler.local.costoMes : 0" disabled required  [(ngModel)]="alquiler.costoAlquiler" >
         </div>
         <div class="mb-3 d-flex align-items-center justify-content-center col-8 m-auto gap-3">
             <label for="fecha-alquiler" class="form-label">Fecha Alquiler: </label>

@@ -51,7 +51,7 @@ export class CrudAnunciosComponent {
   }
 
   registrarPromocion(): void{
-    alert("formulario de promocion");
+    this.router.navigate(['anuncios-form'])
   }
 
   eliminarPromocion(promocion: Promocion){
