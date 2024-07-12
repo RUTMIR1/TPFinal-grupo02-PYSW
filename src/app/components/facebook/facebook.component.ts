@@ -25,16 +25,8 @@ export class FacebookComponent implements OnInit {
   mensaje: string = "";
   perfil!:any;
   promocion!: Promocion;
-  constructor(private fb: FacebookService, private router: Router, private toastr: ToastrService, public loginService: LoginService, private promocionService: PromocionService) {
-
   files: { base64: string, safeurl: SafeUrl }[] = [];
-  constructor(
-    private fb: FacebookService,
-    private domSanitizer: DomSanitizer,
-    private router: Router,
-    private toastr: ToastrService,
-    public loginService: LoginService) {
-
+  constructor(private fb: FacebookService, private router: Router, private toastr: ToastrService, public loginService: LoginService, private promocionService: PromocionService) {
     if (!this.loginService.userLoggedIn()) {
       this.toastr.error("Debe validarse", 'Ingresar su usuario y clave');
       this.router.navigate(['login']);
