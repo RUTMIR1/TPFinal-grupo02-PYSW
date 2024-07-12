@@ -132,7 +132,7 @@ export class AlquilerFormComponent implements OnInit{
       (response)=>{
         vector = response;
         for(let e of vector){
-          if(e.alquilado == false){
+          if(e.alquilado == false && e.habilitado != false){
             this.locales.push(e);
           }
         }

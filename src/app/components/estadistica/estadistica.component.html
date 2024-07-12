@@ -3,5 +3,7 @@
   [options]="chartOptions"
   style="width: 100%; height: 400px; display: block;">
 </highcharts-chart>
+<label for="yearInput">Año:</label>
+<input id="yearInput" type="number" [(ngModel)]="seleccion" (change)="obtenerPagos(seleccion)">
 <div id="chartContainer2" style="width: 100%; height: 400px;"></div>
 <div id="chartContainer3" style="width: 100%; height: 400px; display: block;"></div>
