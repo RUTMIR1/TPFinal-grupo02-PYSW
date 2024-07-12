@@ -9,15 +9,17 @@ import { Alquiler } from '../../models/alquiler';
 import { Local } from '../../models/local';
 import { Novedad } from '../../models/novedad';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-estadistica',
   standalone: true,
-  imports: [HighchartsChartModule, CommonModule],
+  imports: [HighchartsChartModule, CommonModule, FormsModule],
   templateUrl: './estadistica.component.html',
   styleUrls: ['./estadistica.component.css']
 })
 export class EstadisticaComponent implements OnInit{
+  seleccion:number = 0; 
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {
     title: {
@@ -90,23 +92,25 @@ export class EstadisticaComponent implements OnInit{
   ) { }
 
   ngOnInit(): void {
-    this.obtenerPagos();
+    this.obtenerPagos(2024);
     this.obtenerAlquileresPorLocal();
     this.obtenerNovedades();
   }
 
-  obtenerPagos(): void {
+  obtenerPagos(year:number): void {
     this.pagoService.getPagos().subscribe(
       (data: Pago[]) => {
         let seriesData: Array<number> = [];
         let categories: string[] = [];
-
         // Procesar datos de pagos para Highcharts
         data.forEach(pago => {
-          let month = new Date(pago.fecha).getMonth(); // Obtener el número de mes (0-11)
-          let amount = pago.monto;
-          seriesData.push(amount);
-          categories.push(this.getNombreMes(month)); // Agregar nombre del mes a las categorías del eje X
+          let comparacion:number = new Date(pago.fecha).getFullYear();
+          if(pago.estado == "Pagado" && comparacion === year){
+            let month = new Date(pago.fecha).getMonth(); // Obtener el número de mes (0-11)
+            let amount = pago.monto;
+            seriesData.push(amount);
+            categories.push(this.getNombreMes(month)); // Agregar nombre del mes a las categorías del eje X
+          }
         });
 
         // Actualizar chartOptions con los datos obtenidos
