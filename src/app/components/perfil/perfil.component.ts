@@ -49,4 +49,10 @@ export class PerfilComponent implements OnInit{
       }
     )
   }
+  ListarAnuncios(){
+    this.router.navigate(['anuncios-list']);
+  }
+  gestionarPublicaciones(){
+    this.router.navigate(['anuncios-form']);
+  }
 }
