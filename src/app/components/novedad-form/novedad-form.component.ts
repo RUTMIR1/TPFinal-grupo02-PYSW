@@ -39,7 +39,7 @@ export class NovedadFormComponent implements OnInit{
     let usuarioSession = sessionStorage.getItem("perfil") || "nadie";
     
 
-    if (usuarioSession != "nadie") {
+    if (usuarioSession == 'dueño' || usuarioSession =='administrativo') {
       let safeurl: SafeUrl = this.domSanitizer;
       this.activatedRoute.params.subscribe(params => {
         if (params['id'] == undefined) {

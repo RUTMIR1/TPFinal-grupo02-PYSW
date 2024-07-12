@@ -1,10 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { Novedad } from '../../models/novedad';
 import { Subject } from 'rxjs';
 import { DataTableDirective, DataTablesModule } from 'angular-datatables';
 import { NovedadService } from '../../services/novedad.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-crud-novedades',
@@ -17,6 +18,8 @@ export class CrudNovedadesComponent {
   dtOptions: any = {};
   novedades!: Array<Novedad>;
   dtTrigger: Subject<any> = new Subject<any>(); 
+
+  toastrSvc = inject(ToastrService);
  
 
   constructor(private novedadService: NovedadService, private router: Router){
@@ -37,6 +40,13 @@ export class CrudNovedadesComponent {
   }
 
   ngOnInit(){
+    let usuarioSession = sessionStorage.getItem("perfil") || "nadie";
+    if (usuarioSession != 'dueño' && usuarioSession !='administrativo')
+      {
+        this.toastrSvc.error("No tiene los permisos para esta accion");
+        this.router.navigate(['home']);
+      } 
+
     this.obtenerNovedades();
     this.dtOptions = {
       language: {
@@ -44,7 +54,7 @@ export class CrudNovedadesComponent {
       },
       responsive: true
     }
-    
+
   }
 
   ngOnDestroy(): void {
