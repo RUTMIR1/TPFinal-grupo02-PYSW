@@ -56,8 +56,8 @@ export class PerfilComponent implements OnInit{
   irEstadistica():void{
       this.router.navigate(['estadistica']);
   }
- ListarAnuncios():void{
-    this.router.navigate(['anuncios-list']);
+ ListarNovedades():void{
+    this.router.navigate(['novedades-list']);
   }
   gestionarPublicaciones():void{
     this.router.navigate(['anuncios-list']);
