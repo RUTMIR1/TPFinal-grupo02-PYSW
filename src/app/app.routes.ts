@@ -16,6 +16,7 @@ import { CrudAnunciosComponent } from './components/crud-anuncios/crud-anuncios.
 import { FacebookComponent } from './components/facebook/facebook.component';
 import { EstadisticaComponent } from './components/estadistica/estadistica.component';
 import { PublicacionesComponent } from './components/publicaciones/publicaciones.component';
+import { CrudAnunciosComponent } from './components/crud-anuncios/crud-anuncios.component';
 
 
 export const routes: Routes = [
@@ -79,6 +80,9 @@ export const routes: Routes = [
     },
     {
         path:'estadistica', component: EstadisticaComponent
+    },
+    {
+        path:'anuncios-list', component: CrudAnunciosComponent
     },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: HomeComponent }
