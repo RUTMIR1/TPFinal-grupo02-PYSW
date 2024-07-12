@@ -60,6 +60,6 @@ export class PerfilComponent implements OnInit{
     this.router.navigate(['anuncios-list']);
   }
   gestionarPublicaciones():void{
-    this.router.navigate(['anuncios-form']);
+    this.router.navigate(['anuncios-list']);
   }
 }
