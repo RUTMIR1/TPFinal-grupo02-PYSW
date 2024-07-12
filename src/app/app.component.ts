@@ -16,6 +16,7 @@ import { CrudNovedadesComponent } from './components/crud-novedades/crud-novedad
 import { CrudAnunciosComponent } from './components/crud-anuncios/crud-anuncios.component';
 
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

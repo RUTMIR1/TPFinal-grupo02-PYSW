@@ -31,6 +31,7 @@ export class PagoComponent implements OnInit {
   alquiler:Alquiler = new Alquiler();
   limiteMonto:number = 0;
   avisoLimite:boolean = true;
+  pagos:Array<Pago> = [];
   constructor(private paymentService:PaymentService, private router:Router,
     private pagoService:PagoService, private usuarioService:UsuarioService,
     private alquilerService:AlquilerService, private activatedRouter:ActivatedRoute,
@@ -51,19 +52,21 @@ export class PagoComponent implements OnInit {
     });
     console.log(this.idCuota);
     console.log(this.idAlquiler);
+    this.obtenerPagos();
   }
   crearPago():void{
+    this.item.id = "Pago-"+ this.pagos.length;
+    this.item.currency_id = "ARS";
     this.item.description = "El pago de una cuota";
     this.item.category_id = "Varios";
     this.item.title = "Pago";
     this.item.picture_url = "";
     this.item.quantity = 1;
     this.item.unit_price = this.pago.monto;
-    let Array:any = [];
-    Array.push(this.item);
-    this.paymentService.createPayment(Array).subscribe(
+    this.paymentService.createPayment(this.item).subscribe(
       (response) => {
         console.log(response);
+        this.pago.numPago = this.pagos.length;
         this.pago.enlacePago = response.init_point;
         this.generarPago();
       },
@@ -155,6 +158,17 @@ export class PagoComponent implements OnInit {
     }else{
       this.avisoLimite = true;
     }
+  }
+
+  obtenerPagos():void{
+    this.pagoService.getPagos().subscribe(
+      (response)=>{
+        this.pagos = response;
+      },
+      (error)=>{
+        console.error(error);
+      }
+    );
   }
 
 

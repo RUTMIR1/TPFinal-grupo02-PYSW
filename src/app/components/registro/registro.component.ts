@@ -84,7 +84,7 @@ export class RegistroComponent {
     if(this.Usuario._id!=undefined){
       this.UsuarioService.putUser(this.Usuario).subscribe(
         data => {
-          alert("USUARIO ACTUALIZADO")
+          this.toastr.success("Usuario actualizado");
           this.router.navigate(['/usuarios']);
           console.log(data);
         },
@@ -96,7 +96,7 @@ export class RegistroComponent {
     else{
       this.UsuarioService.postUser(this.Usuario).subscribe(
         data => {
-          alert("USUARIO AGREGADO")
+          this.toastr.success("Usuario agregado");
           this.router.navigate(['/usuarios']);
           console.log(data);
         },

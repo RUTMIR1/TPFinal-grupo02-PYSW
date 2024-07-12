@@ -1,0 +1,73 @@
+import { Component, OnInit } from '@angular/core';
+import { FacebookService, InitParams, LoginResponse } from 'ngx-facebook';
+import { ApiMethod } from 'ngx-facebook/providers/facebook';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { LoginService } from '../../services/login.service';
+import { Promocion } from '../../models/promocion';
+import { PromocionService } from '../../services/promocion.service';
+@Component({
+  selector: 'app-facebook',
+  standalone: true,
+  imports: [FormsModule],
+  templateUrl: './facebook.component.html',
+  styleUrl: './facebook.component.css'
+})
+
+
+
+export class FacebookComponent implements OnInit {
+  mensaje: string = "";
+  perfil!:any;
+  promocion!: Promocion;
+  constructor(private fb: FacebookService, private router: Router, private toastr: ToastrService, public loginService: LoginService, private promocionService: PromocionService) {
+    if (!this.loginService.userLoggedIn()) {
+      this.toastr.error("Debe validarse", 'Ingresar su usuario y clave');
+      this.router.navigate(['login']);
+    }
+  }
+  ngOnInit(): void {
+    this.perfil = sessionStorage.getItem("perfil");
+    if (this.perfil == 'dueño' || this.perfil == 'administrativo' || this.perfil == 'propietario') {
+      this.iniciarFb();
+    } else {
+      this.toastr.error("No tiene los permisos para esta accion");
+      this.router.navigate(['home']);
+    }
+  }
+  postFb() {
+    var apiMethod: ApiMethod = "post";
+    this.fb.api('/316071514932229/feed', apiMethod,
+      {
+        "message": this.mensaje,
+        "access_token": "EAAFAJANFrVwBO0bRAn4VUzSnuI09Wpf2q5As42DifZBM4LbG3jIiPGkQCvcWEOrQnl5sS852RQgNvX9uqsDjesgN5sRtfshX3WKCplxZAV4ZCpcpV4rL2W3K4J5p2d7AVDC7J2j5oi47ug4GeETBn16i7RmXmkSyNt941jwLzHh2J8AqiT8k3PQM1OQKuh7O8KSqjAuN0fVdsmV1uoU3DVDseG3C8mZC"
+      }).then((response:any)=>{
+        if(response && response.id){
+          console.log("ID DE LA PUBLICACIÓN AGREGADA A FACEBOOK: " + response.id);
+          this.promocion.pathing = this.mensaje;
+          this.promocion.pathing = response.id;
+          this.promocionService.addPromocion(this.promocion)
+          this.toastr.success("Publicación agregada a facebook");
+        } else {
+          this.toastr.error("Publicación no agregada");
+        }
+      });
+    this.toastr.success("publicacion agregada a facebook");
+  }
+  iniciarFb() {
+    let initParams: InitParams = {
+      appId: '351998394608988',
+      autoLogAppEvents: true,
+      xfbml: true,
+      version: 'v7.0'
+    };
+    this.fb.init(initParams);
+  }
+  redirigir() {
+    this.router.navigate(['/home']);
+  }
+
+}
+
+
