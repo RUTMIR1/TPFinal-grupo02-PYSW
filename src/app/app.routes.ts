@@ -14,6 +14,7 @@ import { CuotaComponent } from './components/cuota/cuota.component';
 import { PagoComponent } from './components/pago/pago.component';
 import { CrudAnunciosComponent } from './components/crud-anuncios/crud-anuncios.component';
 import { FacebookComponent } from './components/facebook/facebook.component';
+import { EstadisticaComponent } from './components/estadistica/estadistica.component';
 import { PublicacionesComponent } from './components/publicaciones/publicaciones.component';
 
 
@@ -75,6 +76,9 @@ export const routes: Routes = [
     },
     {
         path: 'anuncios', component: FacebookComponent
+    },
+    {
+        path:'estadistica', component: EstadisticaComponent
     },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: HomeComponent }

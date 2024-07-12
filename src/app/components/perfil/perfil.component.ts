@@ -53,10 +53,13 @@ export class PerfilComponent implements OnInit{
       }
     )
   }
-  ListarAnuncios(){
+  irEstadistica():void{
+      this.router.navigate(['estadistica']);
+  }
+ ListarAnuncios():void{
     this.router.navigate(['anuncios-list']);
   }
-  gestionarPublicaciones(){
+  gestionarPublicaciones():void{
     this.router.navigate(['anuncios-form']);
   }
 }
