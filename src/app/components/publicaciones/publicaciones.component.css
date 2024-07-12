@@ -1,0 +1,24 @@
+.card-perso{
+    background-image: url(../../../assets/images/fondoCard.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-attachment: fixed; */
+}
+.link-perso {
+    font-weight: 500;
+    text-align: center;
+    border: 2px solid transparent;
+    color: white;
+  }
+  
+  .link-perso:hover {
+    text-decoration: double underline;
+    color: white;
+    border: 2px solid transparent;
+  }
+  
+  .link-perso:active {
+    background-color: rgb(78 37 30);
+    color: white;
+  }

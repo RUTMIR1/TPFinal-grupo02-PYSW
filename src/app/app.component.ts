@@ -14,27 +14,16 @@ import { LocalesFormComponent } from './components/locales-form/locales-form.com
 import { LocalesListComponent } from './components/locales-list/locales-list.component';
 import { CrudNovedadesComponent } from './components/crud-novedades/crud-novedades.component';
 import { EstadisticaComponent } from './components/estadistica/estadistica.component'; // Importa tu componente aquí
+import { CrudAnunciosComponent } from './components/crud-anuncios/crud-anuncios.component';
+import { PublicacionesComponent } from './components/publicaciones/publicaciones.component';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterModule,
-    RouterOutlet,
-    CrudUsuariosComponent,
-    LoginComponent,
-    NovedadesComponent,
-    RegistroComponent,
-    HomeComponent,
-    HeaderComponent,
-    FooterComponent,
-    LocalesFormComponent,
-    LocalesListComponent,
-    AlquilerComponent,
-    HttpClientModule,
-    CrudNovedadesComponent,
-    EstadisticaComponent // Asegúrate de incluirlo aquí
-  ],
+  imports: [RouterModule,RouterOutlet,CrudUsuariosComponent, LoginComponent, NovedadesComponent,RegistroComponent,HomeComponent,HeaderComponent,FooterComponent,
+            LocalesFormComponent, LocalesListComponent,AlquilerComponent,HttpClientModule, CrudNovedadesComponent, CrudAnunciosComponent, PublicacionesComponent, EstadisticaComponent
+           ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
