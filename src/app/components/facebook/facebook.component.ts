@@ -49,7 +49,7 @@ export class FacebookComponent implements OnInit {
     this.fb.api('/316071514932229/feed', apiMethod,
       {
         "message": this.mensaje,
-        "access_token": "EAAFAJANFrVwBO3V7QMyhW7f2e02CsTcZBOZA96zj6ZCDx6La8p1AvXSNMvx60DjvbfZClVVK1loV48OFZAZA6w9XKgYZBdWEX2XB4PI0R6vxlZAq57sk9oq9Vkq3PFZBnDvBvNZCHasdzJ5U98RFlaHqtv3nPk5crfT9EbBDZAhecYdPZCdpAdlfUnfzdbCs3D0bRO4JK7AHjBiDEZCZAY40AQqC1ZBQIOE9iwQxdsh"
+        "access_token": "EAAFAJANFrVwBO0bRAn4VUzSnuI09Wpf2q5As42DifZBM4LbG3jIiPGkQCvcWEOrQnl5sS852RQgNvX9uqsDjesgN5sRtfshX3WKCplxZAV4ZCpcpV4rL2W3K4J5p2d7AVDC7J2j5oi47ug4GeETBn16i7RmXmkSyNt941jwLzHh2J8AqiT8k3PQM1OQKuh7O8KSqjAuN0fVdsmV1uoU3DVDseG3C8mZC"
 
       });
     this.toastr.success("publicacion agregada a facebook");

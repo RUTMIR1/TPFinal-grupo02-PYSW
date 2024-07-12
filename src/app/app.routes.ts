@@ -50,7 +50,10 @@ export const routes: Routes = [
         path: 'alquileres', component: AlquilerComponent
     },
     {
-        path: 'crud-novedades', component: CrudNovedadesComponent
+        path: 'anuncios-list', component: CrudNovedadesComponent
+    },
+    {
+        path: 'anuncios-form', component: FacebookComponent
     },
     {
         path: 'alquileres-form', component: AlquilerFormComponent
@@ -64,9 +67,7 @@ export const routes: Routes = [
     {
         path: 'pago/:id/:idAlquiler', component: PagoComponent
     },
-    {
-        path: 'anuncios', component: FacebookComponent
-    },
+
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: HomeComponent }
 ];
