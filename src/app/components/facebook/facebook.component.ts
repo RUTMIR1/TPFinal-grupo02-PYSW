@@ -5,9 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LoginService } from '../../services/login.service';
+import { Promocion } from '../../models/promocion';
+import { PromocionService } from '../../services/promocion.service';
+
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-
 
 @Component({
   selector: 'app-facebook',
@@ -21,7 +23,10 @@ import { CommonModule } from '@angular/common';
 
 export class FacebookComponent implements OnInit {
   mensaje: string = "";
-  perfil!: any;
+  perfil!:any;
+  promocion!: Promocion;
+  constructor(private fb: FacebookService, private router: Router, private toastr: ToastrService, public loginService: LoginService, private promocionService: PromocionService) {
+
   files: { base64: string, safeurl: SafeUrl }[] = [];
   constructor(
     private fb: FacebookService,
@@ -29,6 +34,7 @@ export class FacebookComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService,
     public loginService: LoginService) {
+
     if (!this.loginService.userLoggedIn()) {
       this.toastr.error("Debe validarse", 'Ingresar su usuario y clave');
       this.router.navigate(['login']);
@@ -51,6 +57,16 @@ export class FacebookComponent implements OnInit {
         "message": this.mensaje,
         "access_token": "EAAFAJANFrVwBO0bRAn4VUzSnuI09Wpf2q5As42DifZBM4LbG3jIiPGkQCvcWEOrQnl5sS852RQgNvX9uqsDjesgN5sRtfshX3WKCplxZAV4ZCpcpV4rL2W3K4J5p2d7AVDC7J2j5oi47ug4GeETBn16i7RmXmkSyNt941jwLzHh2J8AqiT8k3PQM1OQKuh7O8KSqjAuN0fVdsmV1uoU3DVDseG3C8mZC"
 
+      }).then((response:any)=>{
+        if(response && response.id){
+          console.log("ID DE LA PUBLICACIÓN AGREGADA A FACEBOOK: " + response.id);
+          this.promocion.pathing = this.mensaje;
+          this.promocion.pathing = response.id;
+          this.promocionService.addPromocion(this.promocion)
+          this.toastr.success("Publicación agregada a facebook");
+        } else {
+          this.toastr.error("Publicación no agregada");
+        }
       });
     this.toastr.success("publicacion agregada a facebook");
   }

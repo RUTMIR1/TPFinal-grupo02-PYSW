@@ -12,7 +12,10 @@ import { CrudNovedadesComponent } from './components/crud-novedades/crud-novedad
 import { AlquilerFormComponent } from './components/alquiler-form/alquiler-form.component';
 import { CuotaComponent } from './components/cuota/cuota.component';
 import { PagoComponent } from './components/pago/pago.component';
+import { CrudAnunciosComponent } from './components/crud-anuncios/crud-anuncios.component';
 import { FacebookComponent } from './components/facebook/facebook.component';
+import { PublicacionesComponent } from './components/publicaciones/publicaciones.component';
+
 
 export const routes: Routes = [
     {
@@ -67,7 +70,12 @@ export const routes: Routes = [
     {
         path: 'pago/:id/:idAlquiler', component: PagoComponent
     },
-
+    {
+        path: 'publicaciones', component: PublicacionesComponent
+    },
+    {
+        path: 'anuncios', component: FacebookComponent
+    },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: HomeComponent }
 ];
