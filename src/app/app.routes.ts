@@ -53,7 +53,10 @@ export const routes: Routes = [
         path: 'alquileres', component: AlquilerComponent
     },
     {
-        path: 'crud-novedades', component: CrudNovedadesComponent
+        path: 'anuncios-list', component: CrudNovedadesComponent
+    },
+    {
+        path: 'anuncios-form', component: FacebookComponent
     },
     {
         path: 'alquileres-form', component: AlquilerFormComponent
