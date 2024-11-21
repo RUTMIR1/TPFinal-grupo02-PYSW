@@ -1,0 +1,63 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build Angular App and Push Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Checkout del código fuente
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # 2. Configurar Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    # 3. Instalar dependencias y construir la aplicación
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build Angular App
+      run: npm run build -- --configuration production
+
+    # 4. Configurar Docker
+    - name: Log in to DockerHub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build and Push Docker Image
+      run: |
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/angular-app:latest .
+        docker push ${{ secrets.DOCKER_USERNAME }}/angular-app:latest
+
+  deploy:
+    name: Deploy to Production
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Log in to remote server
+    - name: Deploy with SSH
+      uses: appleboy/ssh-action@v0.1.8
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USER }}
+        password: ${{ secrets.SERVER_PASSWORD }}
+        script: |
+          docker pull ${{ secrets.DOCKER_USERNAME }}/angular-app:latest
+          docker stop angular-app || true
+          docker rm angular-app || true
+          docker run -d --name angular-app -p 100:80 ${{ secrets.DOCKER_USERNAME }}/angular-app:latest
