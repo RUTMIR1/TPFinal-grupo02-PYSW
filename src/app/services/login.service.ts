@@ -9,7 +9,7 @@ export class LoginService {
 
   hostbase:string;
   constructor(private _http:HttpClient){
-    this.hostbase = 'http://localhost:3000/api/usuario/';
+    this.hostbase = 'http://localhost:80/api/usuario/';
   }
   login(user: string, pass: string):Observable<any>{
     let httpOptions = {

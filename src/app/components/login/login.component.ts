@@ -5,6 +5,7 @@ import { LoginService } from '../../services/login.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -19,15 +20,25 @@ export class LoginComponent implements OnInit{
   msglogin!: string;
 
   constructor(private loginService:LoginService, private router:Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,private usuarioService:UsuarioService
   ){
-    
+    this.prueba();
   }
 
   ngOnInit(): void {
     this.returnUrl = '/home';
   }
 
+  prueba():void{
+    this.usuarioService.getUser().subscribe(
+      (response)=>{
+        console.log(response);
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
+  }
   login():void{
     this.loginService.login(this.userform.username, this.userform.password).subscribe(
       (response)=>{

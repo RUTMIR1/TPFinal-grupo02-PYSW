@@ -48,8 +48,7 @@ export class FacebookComponent implements OnInit {
     this.fb.api('/316071514932229/feed', apiMethod,
       {
         "message": this.mensaje,
-        "access_token": "EAAFAJANFrVwBOZBaoWnRVcjdzcDzMh1rPZBdBKZCNB6ZCQZC971jIPriZAYQs3eV9S8BwZABPk6ZCXpJwTah8UCLY8l5AXBvTmpsDSTRHZCtepns96S9923DgbHLmm4SJZAGAIiLVxRbgt95gCZCUYYDhVZBngWa883ddJ8Ta5LlVxap1IZBsKFCA0N8aMctUxwnwgRdyShbv5zMaZCneoZCV09yq4Qj1ZACUW2K7njr"
-
+        "access_token": "EAAFAJANFrVwBOZCZCwwLqsSMpsf7OEDxbxGSrpZC7d6jqz5chNYkdBANZBGdQESywIAulFrVfRbqjjZAsvLiXIvMi9hMetmxTZCmypmHJK1XPZCbOOlv19wJTYzc4KbmEeyJTQ7AHtzYKUrXCcdTOrRjPaJEI6mT1FkNUCAStnTsBNBx4Yppb6ZAxnaiReBBHLCc1ElCIJw6ZBTeLTES4OIqPTrxksjarOncK"
       }).then((response:any)=>{
         if(response && response.id){
           this.promocion.descripcion = this.mensaje;

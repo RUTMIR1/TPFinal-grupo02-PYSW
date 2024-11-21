@@ -7,7 +7,7 @@ import { Usuario } from '../models/usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
-  urlUser: string='http://localhost:3000/api/usuario'
+  urlUser: string='http://localhost:80/api/usuario'
 
   constructor(private http:HttpClient) { 
   }
