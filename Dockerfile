@@ -23,7 +23,7 @@ FROM nginx:alpine
 COPY --from=build /app/dist/tp-final-grupo02-galeria-comercial/browser/ /usr/share/nginx/html/
 
 # Copiar la configuración personalizada de Nginx
-COPY /app/nginx.conf /etc/nginx/nginx.conf
+COPY ./nginx.conf /etc/nginx/nginx.conf
 
 # Exponer el puerto 80 para servir la aplicación
 EXPOSE 81
