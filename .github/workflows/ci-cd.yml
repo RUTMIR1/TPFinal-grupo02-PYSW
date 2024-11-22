@@ -23,7 +23,7 @@ jobs:
 
       - name: Build and push Angular image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/angular-frontend:latest -f TpFinal-grupo02-GaleriaComercial/Dockerfile ./TpFinal-grupo02-GaleriaComercial
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/angular-frontend:latest -f TpFinal-grupo02-GaleriaComercial/Dockerfile TpFinal-grupo02-GaleriaComercial
           docker push ${{ secrets.DOCKER_USERNAME }}/angular-frontend:latest
 
       # 3. Desplegar en el servidor
