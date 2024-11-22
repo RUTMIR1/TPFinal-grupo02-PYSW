@@ -29,7 +29,7 @@ jobs:
       # 3. Desplegar en el servidor
       - name: Deploy to server
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
             docker pull ${{ secrets.DOCKER_USERNAME }}/angular-frontend:latest
             docker stop angular-frontend-container || true
             docker rm angular-frontend-container || true
