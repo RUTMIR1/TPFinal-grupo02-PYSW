@@ -26,4 +26,4 @@ COPY --from=build /app/dist/tp-final-grupo02-galeria-comercial/browser/ /usr/sha
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
 # Exponer el puerto 80 para servir la aplicación
-EXPOSE 81
+EXPOSE 80
