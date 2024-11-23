@@ -9,7 +9,7 @@ import { Alquiler } from '../models/alquiler';
 export class AlquilerService {
   apiUrl: String;
   constructor(private _http: HttpClient) { 
-    this.apiUrl  = "http://localhost:3000/api/";
+    this.apiUrl  = "http://localhost:80/api/";
   }
   
 

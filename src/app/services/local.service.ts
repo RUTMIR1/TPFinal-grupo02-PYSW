@@ -35,7 +35,7 @@ export class LocalService {
 
   let body:any = JSON.stringify(producto);
   console.log(body);
-  return this._http.post('http://localhost:3000/api/local',body, httpOptions);
+  return this._http.post('http://localhost:80/api/local',body, httpOptions);
   }
 
 

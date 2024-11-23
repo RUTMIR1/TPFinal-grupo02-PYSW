@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http'; // Importar HttpClientModule
 import { CrudAnunciosComponent } from './crud-anuncios.component';
 
 describe('CrudAnunciosComponent', () => {
@@ -8,9 +8,11 @@ describe('CrudAnunciosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CrudAnunciosComponent]
-    })
-    .compileComponents();
+      imports: [
+        CrudAnunciosComponent, // Tu componente
+        HttpClientModule // Importar HttpClientModule para resolver HttpClient
+      ]
+    }).compileComponents();
     
     fixture = TestBed.createComponent(CrudAnunciosComponent);
     component = fixture.componentInstance;

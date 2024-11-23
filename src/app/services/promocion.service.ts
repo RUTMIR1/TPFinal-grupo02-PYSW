@@ -7,7 +7,7 @@ import { Promocion } from '../models/promocion';
   providedIn: 'root'
 })
 export class PromocionService {
-  apiUrl: String = "http://localhost:3000/api/";
+  apiUrl: String = "http://localhost:80/api/";
 
   constructor(private _http: HttpClient) { }
 

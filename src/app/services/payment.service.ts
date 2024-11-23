@@ -8,7 +8,7 @@ import { Item } from '../models/item';
 })
 export class PaymentService {
 
-  private baseUrl = 'http://localhost:3000/';  // URL del backend
+  private baseUrl = 'http://localhost:80/';  // URL del backend
 
   constructor(private http: HttpClient) { }
 

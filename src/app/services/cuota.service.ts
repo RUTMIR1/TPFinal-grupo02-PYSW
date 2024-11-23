@@ -10,7 +10,7 @@ export class CuotaService{
 
   BaseUrl:string;
   constructor(private _http:HttpClient){ 
-    this.BaseUrl = 'http://localhost:3000/api/cuota/'
+    this.BaseUrl = 'http://localhost:80/api/cuota/'
   }
 
    getCuotas():Observable<any> {

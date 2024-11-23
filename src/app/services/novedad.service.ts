@@ -7,7 +7,7 @@ import { Novedad } from '../models/novedad';
   providedIn: 'root'
 })
 export class NovedadService {
-  apiUrl: String = "http://localhost:3000/api/";
+  apiUrl: String = "http://localhost:80/api/";
 
   constructor(private _http: HttpClient) { }
 

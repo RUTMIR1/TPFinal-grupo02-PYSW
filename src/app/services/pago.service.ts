@@ -9,7 +9,7 @@ import { Pago } from '../models/pago';
 export class PagoService {
 
   
-  private baseUrl = 'http://localhost:3000/api/pago/';  // URL del backend
+  private baseUrl = 'http://localhost:80/api/pago/';  // URL del backend
 
   constructor(private http: HttpClient) { }
 
