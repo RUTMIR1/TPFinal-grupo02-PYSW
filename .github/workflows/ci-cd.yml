@@ -14,35 +14,39 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Ejecutar pruebas de Angular
+      # 2. Instalar Angular CLI globalmente
+      - name: Install Angular CLI
+        run: |
+          npm install -g @angular/cli
+      # 3. Ejecutar pruebas de Angular
       - name: Run tests
         run: |
           npm run test -- --watch=false --browsers=ChromeHeadless
 
-      # 3. Verificar si las pruebas pasaron
+      # 4. Verificar si las pruebas pasaron
       - name: Check if tests passed
         if: success()  # Solo continua si las pruebas pasaron
         run: echo "Tests passed, proceeding to Docker build"
 
-      # 4. Construir la aplicación de Angular
+      # 5. Construir la aplicación de Angular
       - name: Build Angular application
         run: |
           npm run build --prod
 
-      # 5. Log in to DockerHub
+      # 6. Log in to DockerHub
       - name: Log in to DockerHub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # 6. Construir la imagen de Angular
+      # 7. Construir la imagen de Angular
       - name: Build and push Angular image
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/angular-frontend:latest -f ./Dockerfile ./  # Asegúrate de que la ruta al Dockerfile esté correcta
           
 
-      # 7. subir al docker hub
+      # 8. subir al docker hub
       - name: Deploy to server
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/angular-frontend:latest
