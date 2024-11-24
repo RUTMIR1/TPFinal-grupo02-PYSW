@@ -16,7 +16,7 @@ jobs:
 
       # 2. Ejecutar pruebas de Angular
       - name: Run Tests
-        shell: pwsh
+        shell: powershell
         run: |
           $ngPath = Join-Path (npm config get prefix) "ng"
           & $ngPath test -- --watch=false --browsers=ChromeHeadless
