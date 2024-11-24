@@ -45,6 +45,6 @@ jobs:
       - name: Deploy to server
         run: |
           docker pull ${{ secrets.DOCKER_USERNAME }}/angular-frontend:latest
-          docker stop dockerapp-nginx-frontend-1 || true
-          docker rm dockerapp-nginx-frontend-1 || true
+          docker stop dockerapp-nginx-frontend-1
+          docker rm dockerapp-nginx-frontend-1
           docker run -d --name dockerapp-nginx-frontend-1 -p 81:80 ${{ secrets.DOCKER_USERNAME }}/angular-frontend:latest 
