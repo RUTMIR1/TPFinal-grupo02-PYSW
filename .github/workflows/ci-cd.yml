@@ -14,17 +14,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Ejecutar pruebas de Angular
       - name: Run Tests
-        shell: powershell
         run: |
-          $ngPath = Join-Path (npm config get prefix) "ng"
-          & $ngPath test -- --watch=false --browsers=ChromeHeadless
+          npx ng test --watch=false --browsers=ChromeHeadless
 
-      # 3. Construir la aplicación de Angular
       - name: Build Angular application
         run: |
-          npm run build --prod
+          npx ng build --prod
 
       # 4. Log in to DockerHub
       - name: Log in to DockerHub
