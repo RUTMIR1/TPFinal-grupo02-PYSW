@@ -14,20 +14,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Instalar dependencias
-      - name: Install dependencies
-        run: |
-          npm install
-
-      # 3. Instalar Angular CLI
-      - name: Install Angular CLI
-        run: |
-          npm install -g @angular/cli
-      
       # 2. Ejecutar pruebas de Angular
       - name: Run Tests
         run: |
-          ng test -- --watch=false --browsers=ChromeHeadless
+          $(npm config get prefix)/ng test -- --watch=false --browsers=ChromeHeadless
 
       # 3. Construir la aplicación de Angular
       - name: Build Angular application
