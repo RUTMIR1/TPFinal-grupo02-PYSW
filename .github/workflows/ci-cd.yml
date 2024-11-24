@@ -16,8 +16,9 @@ jobs:
 
       # 2. Ejecutar pruebas de Angular
       - name: Run Tests
+        shell: cmd
         run: |
-          $(npm config get prefix)/ng test -- --watch=false --browsers=ChromeHeadless
+          $(npm config get prefix)\ng test -- --watch=false --browsers=ChromeHeadless
 
       # 3. Construir la aplicación de Angular
       - name: Build Angular application
