@@ -13,7 +13,14 @@ jobs:
       # 1. Checkout del repositorio
       - name: Checkout repository
         uses: actions/checkout@v3
-
+      # 2. Instalar Angular CLI
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+   
+      # 3. Instalar dependencias del proyecto
+      - name: Install project dependencies
+        run: npm install
+   
       - name: Run Tests
         run: |
           npx ng test --watch=false --browsers=ChromeHeadless
