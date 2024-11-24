@@ -18,7 +18,8 @@ jobs:
       - name: Run Tests
         shell: cmd
         run: |
-          $(npm config get prefix)\ng test -- --watch=false --browsers=ChromeHeadless
+          $ngPath = Join-Path (npm config get prefix) "ng"
+          & $ngPath test -- --watch=false --browsers=ChromeHeadless
 
       # 3. Construir la aplicación de Angular
       - name: Build Angular application
