@@ -14,6 +14,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # 2. Instalar Angular CLI
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+        
       - name: Run Tests
         run: |
           npx ng test --watch=false --browsers=ChromeHeadless
