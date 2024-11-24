@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  Construi_y_levantar:
     runs-on: self-hosted
 
     steps:
