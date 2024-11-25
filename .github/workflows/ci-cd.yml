@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  Construi_y_levantar:
+  Construir_y_levantar:
     runs-on: self-hosted
 
     steps:
