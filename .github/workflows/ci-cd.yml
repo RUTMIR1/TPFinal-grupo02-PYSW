@@ -20,7 +20,7 @@ jobs:
       # 3. Instalar dependencias del proyecto
       - name: Instalar dependencias de proyecto
         run: npm install
-   
+      # 2. corre los test
       - name: Run Tests
         run: |
           npx ng test --watch=false --browsers=ChromeHeadless
