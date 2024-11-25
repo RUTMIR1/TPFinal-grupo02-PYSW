@@ -47,4 +47,4 @@ jobs:
           docker pull ${{ secrets.DOCKER_USERNAME }}/angular-frontend:latest
           docker stop dockerapp-nginx-frontend-1
           docker rm dockerapp-nginx-frontend-1
-          docker run -d --name dockerapp-nginx-frontend-1 -p 81:80 ${{ secrets.DOCKER_USERNAME }}/angular-frontend:latest 
+          docker run -d --name dockerapp-nginx-frontend-1 -p 81:80 --network redCluster ${{ secrets.DOCKER_USERNAME }}/angular-frontend:latest 
