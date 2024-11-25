@@ -19,7 +19,7 @@ export class LocalService {
         'Content-Type': 'application/json'
       }),
     }
-  return this._http.get('http://localhost:3000/api/local', httpOptions);
+  return this._http.get('http://localhost:80/api/local', httpOptions);
   }
 
 
@@ -49,7 +49,7 @@ export class LocalService {
     }
 
   let body:any = JSON.stringify(l);
-  return this._http.put('http://localhost:3000/api/local/'+l._id,body, httpOptions);
+  return this._http.put('http://localhost:80/api/local/'+l._id,body, httpOptions);
   }
 
   // DELETE DE LOCAL
@@ -59,7 +59,7 @@ export class LocalService {
         'Content-Type': 'application/json'
       }),
     }
-    return this._http.delete('http://localhost:3000/api/local/'+id, httpOptions);
+    return this._http.delete('http://localhost:80/api/local/'+id, httpOptions);
   }
 
 
@@ -71,7 +71,7 @@ export class LocalService {
         'Content-Type': 'application/json'
       }),
     }
-    return this._http.get('http://localhost:3000/api/local/'+id, httpOptions);
+    return this._http.get('http://localhost:80/api/local/'+id, httpOptions);
   }
 
 
