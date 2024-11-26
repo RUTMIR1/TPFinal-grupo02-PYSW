@@ -81,7 +81,7 @@ export class RegistroComponent {
   }
 
   actualizar(){
-    if(this.Usuario._id!=undefined){
+    if(this.Usuario.id!=undefined){
       this.UsuarioService.putUser(this.Usuario).subscribe(
         data => {
           this.toastr.success("Usuario actualizado");
