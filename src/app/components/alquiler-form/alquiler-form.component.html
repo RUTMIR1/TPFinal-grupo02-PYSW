@@ -16,7 +16,7 @@
             <p class="form-label" >Propietario:</p>
             <select id="propietario" class="form-select input-focus" name="propietario" required aria-label="Default select example" [(ngModel)]="idPropietario" (change)="asignarPropietario()">
                 <option value="" selected disabled>Propietario</option>
-                <option *ngFor="let e of propietarios" [value]="e._id">{{e.nombre}} {{e.apellido}}</option>
+                <option *ngFor="let e of propietarios" [value]="e.id">{{e.nombre}} {{e.apellido}}</option>
             </select>
         </div>
         <div class="mb-3 d-flex align-items-center justify-content-center col-8 m-auto gap-3">
