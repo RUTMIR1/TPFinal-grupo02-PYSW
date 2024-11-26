@@ -63,7 +63,7 @@ export class NovedadFormComponent implements OnInit{
       (data:any) => {
         
         this.novedad.usuario = data;
-        this.novedad.usuario = this.usuarios.find(usuario => (usuario._id === this.novedad.usuario._id))!;
+        this.novedad.usuario = this.usuarios.find(usuario => (usuario.id === this.novedad.usuario.id))!;
       },
       (error:any) =>{
         console.log(error);
@@ -77,7 +77,7 @@ export class NovedadFormComponent implements OnInit{
       (data:any) =>
       {
         this.novedad = data;
-        this.novedad.usuario = this.usuarios.find(usuario => (usuario._id === this.novedad.usuario._id))!;
+        this.novedad.usuario = this.usuarios.find(usuario => (usuario.id === this.novedad.usuario.id))!;
         console.log(data);
       },
       (error:any) =>

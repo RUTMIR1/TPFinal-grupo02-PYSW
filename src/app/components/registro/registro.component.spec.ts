@@ -37,7 +37,7 @@ describe('RegistroComponent', () => {
 
     // Inicializa Usuario con valores predeterminados para evitar acceso a propiedades indefinidas
     component.Usuario = {
-      _id: '123',
+      id: '123',
       nombre: 'Juan',
       // inicializa otras propiedades de Usuario si es necesario
     } as Usuario;
