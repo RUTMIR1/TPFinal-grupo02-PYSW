@@ -54,11 +54,11 @@ ModificarUsuario(id:string){
 }
 EliminarUsuario(id:string){
   this.UsuarioService.deleteUser(id).subscribe(
-    data =>{
+   data =>{
       alert("Usuario Eliminado")
       this.MostrarUsuarios();
     },
-    error =>{
+   error =>{
       console.log(error)
     }
     )

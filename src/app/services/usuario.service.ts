@@ -40,7 +40,7 @@ export class UsuarioService {
       })
     }
     let body= JSON.stringify(user)
-    return this.http.put(this.urlUser+'/'+user._id,body,httpOptions);
+    return this.http.put(this.urlUser+'/'+user.id,body,httpOptions);
   }
 
   public postUser(user: Usuario):Observable<any>{
